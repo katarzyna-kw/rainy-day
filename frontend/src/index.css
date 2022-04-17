@@ -1,0 +1,34 @@
+/* #7894ff - purple */
+/* #FF89FF - pink
+#FF4F2D - red */
+/* #E6EBFF - gray */
+
+.light {
+  --bg: #fff;
+  --base-text: #000;
+  --header-bg: #000;
+  --logo: #FF8874;
+  --logo-hover: #FF89FF;
+  --navlink: #E6EBFF;
+  --navlink-hover: #7894ff;
+}
+
+.dark {
+  --bg: hsl(0, 0%, 13%);
+  --base-text: #fff;
+  --header-bg: hsl(0, 0%, 16%);;
+  --logo: #FF8874;
+  --logo-hover: #FF89FF;
+  --navlink: #E6EBFF;
+  --navlink-hover: #7894ff;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Prata', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
