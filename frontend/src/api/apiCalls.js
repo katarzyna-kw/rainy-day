@@ -1,0 +1,81 @@
+import axios from "axios"
+import apiHelpers from "./apiHelpers"
+
+const apiCalls = {}
+const BASE_URL = "http://localhost:8000"
+
+apiCalls.signup = async (signupData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.post(`${BASE_URL}/users/`, signupData, apiHelpers.getCsrfConfig())
+  )
+}
+
+apiCalls.login = async (loginData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.post(`${BASE_URL}/login/`, loginData, apiHelpers.getCsrfConfig())
+  )
+}
+
+apiCalls.logout = async () => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.post(`${BASE_URL}/logout/`, null, apiHelpers.getCsrfConfig()))
+}
+
+apiCalls.getAllColorPalettes = async () => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/color-palettes/`, apiHelpers.getCsrfConfig())
+    )
+}
+
+apiCalls.createColorPalette = async (colorPaletteData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.post(`${BASE_URL}/color-palettes/`, colorPaletteData, apiHelpers.getCsrfConfig()))
+}
+
+apiCalls.getColorPaletteById = async (colorPaletteId) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/color-palettes/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
+}
+
+// PUT to the detail view => update one
+// PATCH to the detail view => partial up date one
+apiCalls.updateColorPaletteById = async (colorPaletteId) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.put(`${BASE_URL}/color-palettes/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
+}
+
+apiCalls.deleteColorPaletteById = async (colorPaletteId) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.delete(`${BASE_URL}/color-palettes/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
+}
+
+
+apiCalls.getAllFontPairs = async () => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/font-pairs/`, apiHelpers.getCsrfConfig())
+    )
+}
+
+apiCalls.createFontPair = async (fontPairData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.post(`${BASE_URL}/font-pairs/`, fontPairData, apiHelpers.getCsrfConfig()))
+}
+
+apiCalls.getFontPairById = async (fontPairId) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/font-pairs/${fontPairId}/`, apiHelpers.getCsrfConfig()))
+}
+
+// PUT to the detail view => update one
+// PATCH to the detail view => partial up date one
+apiCalls.updateFontPairById = async (fontPairId) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.put(`${BASE_URL}/font-pairs/${fontPairId}/`, apiHelpers.getCsrfConfig()))
+}
+
+apiCalls.deleteFontPairById = async (fontPairId) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.delete(`${BASE_URL}/font-pairs/${fontPairId}/`, apiHelpers.getCsrfConfig()))
+}
+
+export default apiCalls

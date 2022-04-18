@@ -6,7 +6,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
 
-function Header() {
+function Header({user, setUser}) {
 
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
@@ -43,9 +43,9 @@ function Header() {
             }
           </button>
         }
-        {!isMobile && <Navbar mobile={isMobile}/>}
+        {!isMobile && <Navbar mobile={isMobile} user={user} setUser={setUser} handleToggle={handleToggle}/> }
       </div>
-      {navbarOpen && isMobile && <Navbar /> }
+      {navbarOpen && isMobile && <Navbar user={user} setUser={setUser} handleToggle={handleToggle}/> }
     </div>
   )
 }

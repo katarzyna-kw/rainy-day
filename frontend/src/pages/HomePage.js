@@ -1,8 +1,13 @@
 import React from 'react'
 
-function HomePage() {
+function HomePage({user}) {
+
+  console.log("user: ", user)
+
   return (
-    <div>HomePage</div>
+    <div>
+      {user === null  ? <h1>Welcome!</h1> : <h1>Welcome, {user.first_name}! </h1>}
+    </div>
   )
 }
 

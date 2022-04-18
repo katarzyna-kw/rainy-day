@@ -2,7 +2,9 @@ import React from 'react'
 
 function CreateColorPalette() {
   return (
-    <div>CreateColorPalette</div>
+    <div className="create__container">
+      Create palette
+    </div>
   )
 }
 

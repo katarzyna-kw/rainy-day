@@ -1,4 +1,5 @@
-import { HashRouter as HashRouter, Routes, Route } from 'react-router-dom'
+import {useState} from 'react'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import SignUp from './pages/SignUp'
@@ -6,19 +7,21 @@ import LogIn from './pages/LogIn'
 import CreateColorPalette from './pages/CreateColorPalette'
 import CreateFontPair from './pages/CreateFontPair'
 import ViewMyStyles from './pages/ViewMyStyles'
-
 import './App.css';
 
 function App() {
+
+  const [user, setUser ] = useState(null)
+
   return (
     <div className="App light">
       <HashRouter>
-        <Header />
+        <Header user={user} setUser={setUser}/>
         <div className="page__container">
           <Routes>
             <Route 
               exact path="/" 
-              element={ <HomePage /> } 
+              element={ <HomePage user={user}/> } 
             />
             <Route 
               exact path="/signup" 
@@ -26,7 +29,7 @@ function App() {
             />
             <Route 
               exact path="/login" 
-              element={ <LogIn /> } 
+              element={ <LogIn setUser={setUser} /> } 
             />
             <Route 
               exact path="/create-color-palette" 
