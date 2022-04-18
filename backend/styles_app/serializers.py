@@ -9,11 +9,12 @@ class AppUserSerializer(serializers.ModelSerializer):
     
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
+    first_name = serializers.CharField()
     
     def create(self, validated_data):
         validated_data["password"] = make_password(validated_data["password"])
         return super().create(validated_data)
-    
+            
 
 class ColorPaletteSerializer(serializers.ModelSerializer):
     class Meta:

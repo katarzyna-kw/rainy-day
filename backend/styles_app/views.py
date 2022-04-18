@@ -1,8 +1,7 @@
-from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
+from rest_framework import permissions
 from .serializers import *
 from .views_auth import handle_login, handle_logout
-from rest_framework import permissions
 
 class AppUserViewSet(ModelViewSet):
     queryset = AppUser.objects.all()
@@ -17,18 +16,29 @@ class AppUserViewSet(ModelViewSet):
 
 
 class ColorPaletteViewSet(ModelViewSet):
-    queryset = ColorPalette.objects.all()
+    # queryset = ColorPalette.objects.all()
+    
     serializer_class =ColorPaletteSerializer
     
     def perform_create(self, serializer):
         serializer.save(user_id=self.request.user)
         return super().perform_create(serializer)
     
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return ColorPalette.objects.all()
+        return ColorPalette.objects.filter(user_id=self.request.user)
+
     
 class FontPairViewSet(ModelViewSet):
-    queryset = FontPair.objects.all()
+    # queryset = FontPair.objects.all()
     serializer_class =FontPairSerializer
     
     def perform_create(self, serializer):
         serializer.save(user_id=self.request.user)
         return super().perform_create(serializer)
+
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return FontPair.objects.all()
+        return FontPair.objects.filter(user_id=self.request.user)

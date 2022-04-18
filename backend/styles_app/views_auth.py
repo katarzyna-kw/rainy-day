@@ -2,6 +2,9 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
+from .models import AppUser
+from django.contrib.auth import get_user_model
+
 
 def error_on_request(error_msg):
     return JsonResponse({ "error": error_msg }, status=400)
@@ -9,19 +12,21 @@ def error_on_request(error_msg):
 def bad_request():
     return error_on_request("bad request")
 
+
+
 @csrf_exempt
 def handle_login(request):
     try:
         if request.method == "POST":
             data = json.loads(request.body)
-            username = data.get("username")
+            print("DATA: ", data)
+            username = data.get("email")
             password = data.get("password")
-
             user = authenticate(username=username, password=password)
-            if user and user.is_active:
+            if user:
                 login(request, user)
                 # not passing id for safety -- need to add perform_create to tasklist in serializers since not using id
-                return JsonResponse({ "username": user.username }, status=200)
+                return JsonResponse({ "username": user.email, "first_name": user.first_name, "success": True }, status=200)
     
     except Exception as e:
         return error_on_request(str(e))

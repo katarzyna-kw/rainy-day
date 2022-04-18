@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "styles_app",
     "rest_framework",
-    "corsheaders"
+    "corsheaders", # MUST be name this for django cors headers 
 ]
 
 MIDDLEWARE = [
@@ -53,17 +53,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000" # location of frontend React server
 ]
 
-#needed if separate backend/frontend proj setup
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000" # location of frontend React server
+# added for authentication (required only for separate project setups)
+CSRF_TRUSTED_ORIGINS = [ 
+    "http://localhost:3000"
 ]
 
 #added for auth -- only separate proj setup
-CORS_ALLOWED_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True
 
 # added for authentication (required for either separate project -or- hybrid project setups)
 REST_FRAMEWORK = { 
