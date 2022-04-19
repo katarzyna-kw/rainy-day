@@ -14,15 +14,16 @@ class AppUserViewSet(ModelViewSet):
             return (permissions.IsAuthenticated(),)
         return (permissions.IsAdminUser(),)
 
-
 class ColorPaletteViewSet(ModelViewSet):
     # queryset = ColorPalette.objects.all()
     
     serializer_class =ColorPaletteSerializer
     
-    def perform_create(self, serializer):
-        serializer.save(user_id=self.request.user)
-        return super().perform_create(serializer)
+    def create(self, request):
+        print("DATA:", request.data)
+        request.data["user_id"] = request.user.id
+        print("CREATE....", request.user)
+        return super().create(request)
     
     def get_queryset(self):
         if self.request.user.is_superuser:

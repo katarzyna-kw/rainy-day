@@ -2,8 +2,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
-from .models import AppUser
-from django.contrib.auth import get_user_model
+from django.middleware.csrf import get_token
 
 
 def error_on_request(error_msg):
@@ -26,7 +25,7 @@ def handle_login(request):
             if user:
                 login(request, user)
                 # not passing id for safety -- need to add perform_create to tasklist in serializers since not using id
-                return JsonResponse({ "username": user.email, "first_name": user.first_name, "success": True }, status=200)
+                return JsonResponse({ "username": user.email, "first_name": user.first_name, "token": get_token(request), "success": True }, status=200)
     
     except Exception as e:
         return error_on_request(str(e))
@@ -45,3 +44,5 @@ def handle_logout(request):
         return error_on_request(str(e))
     
     return bad_request()
+
+
