@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import apiCalls from "../api/apiCalls"
 import {validate} from 'react-email-validator'
 
-function LogIn({setUser}) {
+function LogIn({setUser, user}) {
 
 
   const navigate = useNavigate()
@@ -32,15 +32,13 @@ function LogIn({setUser}) {
         email: e.target.elements["username"].value,
         password: e.target.elements["password"].value,
       }
-  
-      console.log("login data: ", loginData)
-  
+    
       const data = await apiCalls.login(loginData)
-  
-      console.log("data", data)
-  
+    
       if (data) {
+        console.log("data", data)
         setUser(data)
+        localStorage.setItem("user", JSON.stringify(data))
         navigate("/")
       } else {
         setLoginError(true)

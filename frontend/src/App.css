@@ -10,3 +10,8 @@
   font-size: 16px;
   color: var(--base-text);
 }
+
+.create_container {
+  display: flex;
+  flex-flow: column nowrap;
+}

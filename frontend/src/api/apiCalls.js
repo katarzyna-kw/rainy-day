@@ -21,32 +21,35 @@ apiCalls.logout = async () => {
     () => axios.post(`${BASE_URL}/logout/`, null, apiHelpers.getCsrfConfig()))
 }
 
+
 apiCalls.getAllColorPalettes = async () => {
   return await apiHelpers.tryCatchFetch(
-    () => axios.get(`${BASE_URL}/color-palettes/`, apiHelpers.getCsrfConfig())
+    () => axios.get(`${BASE_URL}/colors/`, apiHelpers.getCsrfConfig())
     )
 }
 
-apiCalls.createColorPalette = async (colorPaletteData) => {
+apiCalls.createColorPalette = async (paletteData) => {
+  console.log("in create color palette")
   return await apiHelpers.tryCatchFetch(
-    () => axios.post(`${BASE_URL}/color-palettes/`, colorPaletteData, apiHelpers.getCsrfConfig()))
+    () => axios.post(`${BASE_URL}/colors/`, paletteData, apiHelpers.getCsrfConfig()))
 }
 
 apiCalls.getColorPaletteById = async (colorPaletteId) => {
   return await apiHelpers.tryCatchFetch(
-    () => axios.get(`${BASE_URL}/color-palettes/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
+    () => axios.get(`${BASE_URL}/colors/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
 }
 
 // PUT to the detail view => update one
 // PATCH to the detail view => partial up date one
 apiCalls.updateColorPaletteById = async (colorPaletteId) => {
+  console.log("csrf: ", apiHelpers.getCsrfConfig())
   return await apiHelpers.tryCatchFetch(
-    () => axios.put(`${BASE_URL}/color-palettes/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
+    () => axios.patch(`${BASE_URL}/colors/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
 }
 
 apiCalls.deleteColorPaletteById = async (colorPaletteId) => {
   return await apiHelpers.tryCatchFetch(
-    () => axios.delete(`${BASE_URL}/color-palettes/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
+    () => axios.delete(`${BASE_URL}/colors/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
 }
 
 

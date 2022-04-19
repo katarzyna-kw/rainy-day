@@ -6,6 +6,8 @@ import apiCalls from '../../api/apiCalls';
 
 function Navbar({user, setUser, handleToggle}) {
 
+  
+
   const navigate = useNavigate()
 
   const handleLogout = async () => {

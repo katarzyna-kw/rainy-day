@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
@@ -13,6 +13,16 @@ function App() {
 
   const [user, setUser ] = useState(null)
 
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("user")
+    if (loggedIn) {
+      const found = JSON.parse(loggedIn)
+      setUser(found)
+    }
+  }, [])
+
+  console.log("user: ", user)
+
   return (
     <div className="App light">
       <HashRouter>
@@ -21,7 +31,7 @@ function App() {
           <Routes>
             <Route 
               exact path="/" 
-              element={ <HomePage user={user}/> } 
+              element={ <HomePage user={user} setUser={setUser} /> } 
             />
             <Route 
               exact path="/signup" 
@@ -29,7 +39,7 @@ function App() {
             />
             <Route 
               exact path="/login" 
-              element={ <LogIn setUser={setUser} /> } 
+              element={ <LogIn setUser={setUser} user={user}/> } 
             />
             <Route 
               exact path="/create-color-palette" 

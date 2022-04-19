@@ -1,8 +1,4 @@
-import React from 'react'
-
 function HomePage({user}) {
-
-  console.log("user: ", user)
 
   return (
     <div>
