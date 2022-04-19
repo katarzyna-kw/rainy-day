@@ -41,10 +41,10 @@ apiCalls.getColorPaletteById = async (colorPaletteId) => {
 
 // PUT to the detail view => update one
 // PATCH to the detail view => partial up date one
-apiCalls.updateColorPaletteById = async (colorPaletteId) => {
+apiCalls.updateColorPaletteById = async (colorPaletteId, newData) => {
   console.log("csrf: ", apiHelpers.getCsrfConfig())
   return await apiHelpers.tryCatchFetch(
-    () => axios.patch(`${BASE_URL}/colors/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
+    () => axios.patch(`${BASE_URL}/colors/${colorPaletteId}/`, newData, apiHelpers.getCsrfConfig()))
 }
 
 apiCalls.deleteColorPaletteById = async (colorPaletteId) => {
@@ -80,5 +80,6 @@ apiCalls.deleteFontPairById = async (fontPairId) => {
   return await apiHelpers.tryCatchFetch(
     () => axios.delete(`${BASE_URL}/font-pairs/${fontPairId}/`, apiHelpers.getCsrfConfig()))
 }
+
 
 export default apiCalls

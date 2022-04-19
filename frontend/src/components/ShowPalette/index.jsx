@@ -1,8 +1,8 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import DeletePalette from '../DeletePalette'
 import EditPaletteName from '../EditPaletteName'
 
-function ShowPalette({currentPalette, removePaletteFromView}) {
+function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
 
   const [renaming, setRenaming] = useState(false)
 
@@ -25,7 +25,7 @@ function ShowPalette({currentPalette, removePaletteFromView}) {
         </div>
       </div>
       <button>Add neutral color to {currentPalette.name}</button>
-      <EditPaletteName currentPalette={currentPalette} renaming={renaming} setRenaming={setRenaming} />
+      <EditPaletteName currentPalette={currentPalette} renaming={renaming} setRenaming={setRenaming} editNameInView={editNameInView} />
       <DeletePalette currentPalette={currentPalette} removePaletteFromView={removePaletteFromView} />
     </div>
   )

@@ -4,6 +4,8 @@ import ShowPalette from "../components/ShowPalette"
 
 function ViewMyStyles({user}) {
 
+  const [palettes, setPalettes] = useState(null)
+
   const removePaletteFromView = (deletedPaletteId) => {
     const updatedPalettes = palettes.filter((palette) => {
       return palette.id !== deletedPaletteId
@@ -11,7 +13,10 @@ function ViewMyStyles({user}) {
     setPalettes(updatedPalettes)
   }
 
-  const [palettes, setPalettes] = useState(null)
+  const editNameInView = () => {
+    loadPalettes()
+  }
+
 
   useEffect(() => {
     loadPalettes()
@@ -27,7 +32,7 @@ function ViewMyStyles({user}) {
     <div>
       <h2>My Styles</h2>
       {palettes && palettes.map((palette) => (
-        <ShowPalette key={palette.id} currentPalette={palette} removePaletteFromView={removePaletteFromView} />
+        <ShowPalette key={palette.id} currentPalette={palette} removePaletteFromView={removePaletteFromView} editNameInView={editNameInView} />
       ))}
     </div>
   )
