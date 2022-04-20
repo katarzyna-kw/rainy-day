@@ -29,7 +29,6 @@ apiCalls.getAllColorPalettes = async () => {
 }
 
 apiCalls.createColorPalette = async (paletteData) => {
-  console.log("in create color palette")
   return await apiHelpers.tryCatchFetch(
     () => axios.post(`${BASE_URL}/colors/`, paletteData, apiHelpers.getCsrfConfig()))
 }
@@ -39,8 +38,6 @@ apiCalls.getColorPaletteById = async (colorPaletteId) => {
     () => axios.get(`${BASE_URL}/colors/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
 }
 
-// PUT to the detail view => update one
-// PATCH to the detail view => partial up date one
 apiCalls.updateColorPaletteById = async (colorPaletteId, newData) => {
   console.log("csrf: ", apiHelpers.getCsrfConfig())
   return await apiHelpers.tryCatchFetch(
@@ -51,7 +48,6 @@ apiCalls.deleteColorPaletteById = async (colorPaletteId) => {
   return await apiHelpers.tryCatchFetch(
     () => axios.delete(`${BASE_URL}/colors/${colorPaletteId}/`, apiHelpers.getCsrfConfig()))
 }
-
 
 apiCalls.getAllFontPairs = async () => {
   return await apiHelpers.tryCatchFetch(

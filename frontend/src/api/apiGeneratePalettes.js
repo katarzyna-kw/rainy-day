@@ -19,4 +19,10 @@ apiGeneratePalettes.generateComplementaryPalette = async (color) => {
     () => axios.get(`${BASE_URL}${color}&mode=analogic-complement&count=3`))
 }
 
+apiGeneratePalettes.generateNeutral = async (color) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}${color}&mode=analogic-complement&count=3`))
+}
+
+
 export default apiGeneratePalettes

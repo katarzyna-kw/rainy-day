@@ -21,8 +21,6 @@ function App() {
     }
   }, [])
 
-  console.log("user: ", user)
-
   return (
     <div className="App light">
       <HashRouter>
