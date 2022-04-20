@@ -70,7 +70,7 @@ function UpdateColor({baseColor, setBaseColor}) {
 
   return (
     <div className="create__container">
-      <ColorPicker width={228} height={114} color={color} onChange={setColor} hideRGB  hideHSV light />
+      <ColorPicker width={228} height={114} color={color} onChange={setColor} hideRGB light />
       <button onClick={showContrastingPalette}>
         Generate contrasting palette
       </button>

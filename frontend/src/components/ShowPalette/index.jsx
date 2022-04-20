@@ -7,6 +7,8 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
 
   const [renaming, setRenaming] = useState(false)
 
+
+
   return (
     <div className="show-palette__container">
       <h2>{currentPalette.name}</h2>
@@ -23,6 +25,9 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
         <div style={{backgroundColor: `${currentPalette.color4}`}}className='palette-color'>
           {currentPalette.color4}
         </div>
+        {/* <div style={{backgroundColor: `${currentPalette.color5}`}} className="palette-color">
+          Add a light neutral color
+        </div> */}
       </div>
       <EditPaletteName currentPalette={currentPalette} renaming={renaming} setRenaming={setRenaming} editNameInView={editNameInView} />
       <DeletePalette currentPalette={currentPalette} removePaletteFromView={removePaletteFromView} />

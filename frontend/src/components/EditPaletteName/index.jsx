@@ -28,14 +28,22 @@ function EditPaletteName({currentPalette, renaming, setRenaming, editNameInView}
     }
   }
 
+  const cancelEdit = (e) => {
+    e.preventDefault()
+    setRenaming(false)
+  }
+
   return (
     <div className='edit__container'>
       <button onClick={handleNameEdit}>Rename {currentPalette.name} palette</button>
       {renaming && 
-      <form className="input__container" onSubmit={editName} method="PATCH" >
-        <input type="text" name="new_name" />
-        <button>save</button>
-      </form>
+      <div className='form__container'>
+        <form className="input__container" onSubmit={editName} method="PATCH" >
+          <input type="text" name="new_name" />
+          <button>save</button>
+        </form>
+        <button onClick={cancelEdit}>x</button>
+      </div>
       }
     </div>
   )
