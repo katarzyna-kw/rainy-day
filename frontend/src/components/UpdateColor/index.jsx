@@ -74,17 +74,15 @@ function UpdateColor({baseColor, setBaseColor}) {
       <button onClick={showContrastingPalette}>
         Generate contrasting palette
       </button>
-      {contrastingPalette && <GeneratePalette currentPalette={contrastingPalette} title="Contrasting" />}
       <button onClick={showAnalogicPalette}>
         Generate analogic palette
       </button>
-      {analogicPalette && <GeneratePalette currentPalette={analogicPalette} title="Analogic"/>}
       <button onClick={showComplementaryPalette}>
         Generate complementary palette
       </button>
+      {contrastingPalette && <GeneratePalette currentPalette={contrastingPalette} title="Contrasting" />}
+      {analogicPalette && <GeneratePalette currentPalette={analogicPalette} title="Analogic"/>}
       {complementaryPalette && <GeneratePalette currentPalette={complementaryPalette} title="Complementary"/>}
-
-
     </div>
   )
 }
