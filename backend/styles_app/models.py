@@ -63,6 +63,7 @@ class ColorPalette(models.Model):
     color3 = models.CharField(max_length=64)
     color4 = models.CharField(max_length=64)
     color5 = models.CharField(max_length=64, null=True, default=None)
+    color6 = models.CharField(max_length=64, null=True, default=None)
     user_id = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name="color_palettes", null=False, default=1)
     
 

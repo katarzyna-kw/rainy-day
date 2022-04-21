@@ -19,7 +19,7 @@ class AppUserSerializer(serializers.ModelSerializer):
 class ColorPaletteSerializer(serializers.ModelSerializer):
     class Meta:
         model = ColorPalette
-        fields = ["id", "name", "color1", "color2", "color3", "color4", "color5", "user_id"]
+        fields = ["id", "name", "color1", "color2", "color3", "color4", "color5", "color6", "user_id"]
         
         
 class FontPairSerializer(serializers.ModelSerializer):
