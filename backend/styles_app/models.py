@@ -66,8 +66,15 @@ class ColorPalette(models.Model):
     color6 = models.CharField(max_length=64, null=True, default=None)
     user_id = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name="color_palettes", null=False, default=1)
     
+    @property
+    def colors(self):
+        return [self.color1, self.color2, self.color3, self.color4, self.color5, self.color6]
 
 class FontPair(models.Model):
     font1 = models.CharField(max_length=64)
     font2 = models.CharField(max_length=64)
     user_id = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name="font_pairs")
+
+    @property
+    def fonts(self):
+        return [self.font1, self.font2]
