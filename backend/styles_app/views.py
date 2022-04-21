@@ -26,8 +26,8 @@ class ColorPaletteViewSet(ModelViewSet):
     
     def get_queryset(self):
         if self.request.user.is_superuser:
-            return ColorPalette.objects.all().order_by('id')
-        return ColorPalette.objects.filter(user_id=self.request.user).order_by('id')
+            return ColorPalette.objects.all().order_by('-id')
+        return ColorPalette.objects.filter(user_id=self.request.user).order_by('-id')
 
     
 class FontPairViewSet(ModelViewSet):
@@ -41,5 +41,5 @@ class FontPairViewSet(ModelViewSet):
     
     def get_queryset(self):
         if self.request.user.is_superuser:
-            return FontPair.objects.all().order_by('id')
-        return FontPair.objects.filter(user_id=self.request.user).order_by('id')
+            return FontPair.objects.all().order_by('-id')
+        return FontPair.objects.filter(user_id=self.request.user).order_by('-id')
