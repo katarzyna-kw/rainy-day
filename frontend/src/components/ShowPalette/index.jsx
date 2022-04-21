@@ -32,11 +32,11 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
     <div className="show-palette__container">
       <h2>{currentPalette.name}</h2>
       <div className='palette__container'>
-        {currentPalette.colors.map((color) => (
-          <div style={{backgroundColor: `${color}`}}className='palette-color'>{color}</div>
+        {currentPalette.colors.map((color, i) => (
+          <div key={i} style={{backgroundColor: `${color}`}}className='palette-color'>{color}</div>
         ))}
         {(!lightNeutral && !currentPalette.color5) && 
-        <div style={{backgroundColor: `${currentPalette.color5}`}} className="palette-color" onClick={(!lightNeutral || !currentPalette.color5) ? () => addNeutral('FFFFFF') : console.log("NO")}>
+        <div style={{backgroundColor: `${currentPalette.color5}`}} className="palette-color clickable" onClick={() => addNeutral('FFFFFF')}>
           {(currentPalette.color5!== null) ? currentPalette.color5 : "Add a light neutral color"}
         </div>
       } 
