@@ -3,6 +3,7 @@ import apiHelpers from "./apiHelpers"
 
 const apiGeneratePalettes = {}
 const BASE_URL = "https://www.thecolorapi.com/scheme?hex="
+const SINGLE_URL = "https://www.thecolorapi.com/id?hex="
 
 apiGeneratePalettes.generateContrastingPalette = async (color) => {
   return await apiHelpers.tryCatchFetch(
@@ -21,7 +22,13 @@ apiGeneratePalettes.generateComplementaryPalette = async (color) => {
 
 apiGeneratePalettes.generateNeutral = async (color) => {
   return await apiHelpers.tryCatchFetch(
-    () => axios.get(`${BASE_URL}${color}&mode=analogic-complement&count=3`))
+    () => axios.get(`${BASE_URL}${color}&mode=analogic&count=10`))
+}
+
+apiGeneratePalettes.getSingleColor = async (color) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${SINGLE_URL}${color}`)
+  )
 }
 
 

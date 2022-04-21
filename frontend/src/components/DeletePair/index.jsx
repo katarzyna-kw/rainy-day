@@ -6,7 +6,7 @@ function DeletePair({currentPair, i, removePairFromView}) {
     let warning = window.confirm(`Are you sure you want to delete Font Pair ${i}?`)
     if (warning) {
       let data = await apiCalls.deleteFontPairById(currentPair.id)
-      console.log("data: ", data)
+      // console.log("data: ", data)
       if (data) {
         removePairFromView(currentPair.id)
       }

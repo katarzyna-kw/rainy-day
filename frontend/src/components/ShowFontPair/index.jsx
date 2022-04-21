@@ -4,7 +4,7 @@ import FontOutput from '../FontOutput'
 
 function ShowFontPair({currentPair, i, removePairFromView}) {
 
-  console.log("pair in show fp: ", currentPair)
+  // console.log("pair in show fp: ", currentPair)
 
   return (
     <div className="show-font-pair__container">

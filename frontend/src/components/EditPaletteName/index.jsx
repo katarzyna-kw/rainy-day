@@ -13,15 +13,14 @@ function EditPaletteName({currentPalette, renaming, setRenaming, editNameInView}
       name: e.target.elements["new_name"].value,
     }
 
-    console.log("updated name: ", updatedName)
+    // console.log("updated name: ", updatedName)
 
     const data = await apiCalls.updateColorPaletteById(currentPalette.id, updatedName)
 
-    console.log("data from api call: ", data)
+    // console.log("data from api call: ", data)
   
     if (data) {
       editNameInView()
-      console.log("current palette stil shows old name: ", currentPalette)
     }
     else {
       console.log('Error updating.')

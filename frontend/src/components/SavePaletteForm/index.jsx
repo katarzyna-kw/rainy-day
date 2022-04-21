@@ -15,11 +15,11 @@ function SavePaletteForm({currentPalette}) {
         color4: currentPalette[3].value,
       }
   
-      console.log("palette data: ", paletteData)
+      // console.log("palette data: ", paletteData)
   
       const data = await apiCalls.createColorPalette(paletteData)
   
-      console.log("data: ", data)
+      // console.log("data: ", data)
   
       if (data) {
         console.log("received data", data)

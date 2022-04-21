@@ -36,7 +36,7 @@ function LogIn({setUser, user}) {
       const data = await apiCalls.login(loginData)
     
       if (data) {
-        console.log("data", data)
+        // console.log("data", data)
         setUser(data)
         localStorage.setItem("user", JSON.stringify(data))
         navigate("/")

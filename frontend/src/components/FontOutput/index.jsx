@@ -1,10 +1,4 @@
-import React, { useEffect } from 'react'
-
 function FontOutput({font}) {
-
-  useEffect(() => {
-    console.log("font in FontOutput: ", font)
-  }, [font])
 
   return (
     <div className="show-font__container">

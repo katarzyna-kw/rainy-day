@@ -3,6 +3,7 @@ import SavePaletteForm from '../SavePaletteForm/'
 
 function GeneratePalette({currentPalette, title}) {
 
+  console.log("current palette in Gen Pal: ", currentPalette)
   return (
     <div className='generate-palette__container'>
       <h2>{title} Palette</h2>
