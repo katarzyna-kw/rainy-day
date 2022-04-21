@@ -15,7 +15,6 @@ class AppUserViewSet(ModelViewSet):
         return (permissions.IsAdminUser(),)
 
 class ColorPaletteViewSet(ModelViewSet):
-    # queryset = ColorPalette.objects.all()
     
     serializer_class =ColorPaletteSerializer
     
@@ -28,11 +27,10 @@ class ColorPaletteViewSet(ModelViewSet):
     def get_queryset(self):
         if self.request.user.is_superuser:
             return ColorPalette.objects.all().order_by('id')
-        return ColorPalette.objects.filter(user_id=self.request.user).object_by('id')
+        return ColorPalette.objects.filter(user_id=self.request.user).order_by('id')
 
     
 class FontPairViewSet(ModelViewSet):
-    # queryset = FontPair.objects.all()
     serializer_class =FontPairSerializer
 
     def create(self, request):
@@ -41,11 +39,7 @@ class FontPairViewSet(ModelViewSet):
         print("CREATE....", request.user)
         return super().create(request)
     
-    # def perform_create(self, serializer):
-    #     serializer.save(user_id=self.request.user)
-    #     return super().perform_create(serializer)
-
     def get_queryset(self):
         if self.request.user.is_superuser:
-            return FontPair.objects.all()
-        return FontPair.objects.filter(user_id=self.request.user)
+            return FontPair.objects.all().order_by('id')
+        return FontPair.objects.filter(user_id=self.request.user).order_by('id')
