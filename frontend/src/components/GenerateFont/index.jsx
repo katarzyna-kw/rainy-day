@@ -1,16 +1,6 @@
-import React, { useEffect } from 'react'
-import WebFont from 'webfontloader'
-import ShowFont from '../FontOutput'
+import FontOutput from '../FontOutput'
 
 function GenerateFont({fonts, font, setFont, initialFont}) {
-
-  useEffect(() => {
-    WebFont.load({
-      google: {
-        families: [`${font}`]
-      }
-    })
-  }, [font])
 
 
   const handleSelect = (e) => {
@@ -28,7 +18,7 @@ function GenerateFont({fonts, font, setFont, initialFont}) {
         </select>
       </label>
       <div className='display__container'>
-        <ShowFont font={font} />
+        <FontOutput font={font} />
       </div>
     </div>
   )

@@ -1,4 +1,15 @@
+import {useEffect} from 'react'
+import WebFont from 'webfontloader'
+
 function FontOutput({font}) {
+
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: [`${font}`]
+      }
+    })
+  }, [font])
 
   return (
     <div className="show-font__container">

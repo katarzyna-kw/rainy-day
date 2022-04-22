@@ -34,13 +34,11 @@ function ViewMyStyles({user}) {
 
   const loadPalettes = async () => {
     let data = await apiCalls.getAllColorPalettes()
-    // console.log("data: ", data)
     setPalettes(data ? data : [])
   }
 
   const loadFontPairs = async () => {
     let data = await apiCalls.getAllFontPairs()
-    // console.log("data: ", data)
     setFontPairs(data ? data : [])
   }
 
@@ -52,7 +50,7 @@ function ViewMyStyles({user}) {
         <ShowPalette key={palette.id} currentPalette={palette} removePaletteFromView={removePaletteFromView} editNameInView={editNameInView} />
       ))}
       {fontPairs && fontPairs.map((pair, i) => (
-        <ShowFontPair key={pair.id} currentPair={pair} i={i+1} removePairFromView={removePairFromView} />
+        <ShowFontPair key={pair.id} currentPair={pair} removePairFromView={removePairFromView} />
       ))}
     </div>
   )

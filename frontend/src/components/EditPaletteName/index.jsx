@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react'
+import {useState} from 'react'
 import apiCalls from '../../api/apiCalls'
 
 function EditPaletteName({currentPalette, renaming, setRenaming, editNameInView}) {
+
+  const [renameError, setRenameError] =useState(false)
 
   const handleNameEdit = () => {
     setRenaming(true)
@@ -17,9 +19,12 @@ function EditPaletteName({currentPalette, renaming, setRenaming, editNameInView}
   
     if (data) {
       editNameInView()
+      setRenameError(false)
+      setRenaming(false)
     }
     else {
       console.log('Error updating.')
+      setRenameError(true)
     }
   }
 
@@ -30,7 +35,9 @@ function EditPaletteName({currentPalette, renaming, setRenaming, editNameInView}
 
   return (
     <div className='edit__container'>
+      {!renaming && 
       <button onClick={handleNameEdit}>Rename {currentPalette.name} palette</button>
+      }
       {renaming && 
       <div className='form__container'>
         <form className="input__container" onSubmit={editName} method="PATCH" >
@@ -38,6 +45,7 @@ function EditPaletteName({currentPalette, renaming, setRenaming, editNameInView}
           <button>save</button>
         </form>
         <button onClick={cancelEdit}>x</button>
+        {renameError && <p>Palette name cannot be blank.</p>}
       </div>
       }
     </div>

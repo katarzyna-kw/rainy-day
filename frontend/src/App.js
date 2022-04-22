@@ -7,6 +7,7 @@ import LogIn from './pages/LogIn'
 import CreateColorPalette from './pages/CreateColorPalette'
 import CreateFontPair from './pages/CreateFontPair'
 import ViewMyStyles from './pages/ViewMyStyles'
+import EditFontPair from './pages/EditFontPair'
 import './App.css';
 
 function App() {
@@ -51,6 +52,11 @@ function App() {
               exact path="/view-styles" 
               element={ <ViewMyStyles /> } 
             />
+            <Route 
+              exact path="/edit-font-pair/:fontPairId" 
+              element={ <EditFontPair /> } 
+            />
+
           </Routes>
         </div>
       </HashRouter>

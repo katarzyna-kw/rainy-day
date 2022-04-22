@@ -1,44 +1,23 @@
-import {useState} from 'react'
-import apiCalls from '../../api/apiCalls'
-
-function EditPaletteColor({currentPalette, lightNeutral, setLightNeutral}) {
-
-  const [isSaved, setIsSaved] = useState(false)
-  const [error, setError] = useState(false)
+function EditPaletteColor({neutral, neutralSet, addNeutralToPalette, isSaved, setIsSaved, neutralError, adjective}) {
 
   const cancelEdit = (e) => {
     e.preventDefault()
-    setLightNeutral(false)
+    neutralSet(false)
+    setIsSaved(false)
   }
-
-  const addNeutralToPalette = async () => {
-
-    let newColorData = {
-      color5: lightNeutral
-    }
-
-    const data = await apiCalls.updateColorPaletteById(currentPalette.id, newColorData)
-
-    if (data) {
-      setIsSaved(true)
-    } else {
-      console.log("error updating")
-      setError(true)
-    }
-  }  
 
 
   return (
     <div className='edit__container'>
-      {lightNeutral && !isSaved && 
+      {neutral && !isSaved &&
         <div className='btn__container'>
-          <button className='save-btn' onClick={addNeutralToPalette}>
-            save palette with light neutral
+          <button className='save-btn' onClick={() => addNeutralToPalette(neutral)}>
+            save palette with {adjective} neutral
           </button>
           <button onClick={cancelEdit}>x</button>
         </div>
       }
-      {error && <p>Error saving palette. Try again.</p>}
+      {neutralError && <p>Error saving palette. Try again.</p>}
     </div>
   )
 }

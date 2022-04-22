@@ -12,18 +12,18 @@ function CreateFontPair() {
   const [feedback, setFeedback] = useState(null)
 
   useEffect(() => {
-    getSerifFonts()
+    getFonts()
   }, [])
 
 
-  const getSerifFonts = async () => {
+  const getFonts = async () => {
     const data = await apiGenerateFonts.generateAllFonts()
     if (data) {
       console.log("all fonts: ", data)
-      let serifData = data.filter(font => font.category === "serif")
+      let serifData = data.filter(font => font.category === "serif" || font.category === "display")
       console.log("serif: ", serifData)
       setSerifFonts(serifData)
-      let sansSerifData = data.filter(font => font.category === "sans-serif").slice(0, 25)
+      let sansSerifData = data.filter(font => font.category === "sans-serif").slice(0, 40)
       setSansSerifFonts(sansSerifData)
     }
   }

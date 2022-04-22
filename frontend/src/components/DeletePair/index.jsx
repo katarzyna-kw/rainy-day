@@ -1,12 +1,11 @@
 import apiCalls from "../../api/apiCalls"
 
-function DeletePair({currentPair, i, removePairFromView}) {
+function DeletePair({currentPair, removePairFromView}) {
 
   const handleDeletePair = async () => {
-    let warning = window.confirm(`Are you sure you want to delete Font Pair ${i}?`)
+    let warning = window.confirm(`Are you sure you want to delete ${currentPair.font1}/${currentPair.font2}?`)
     if (warning) {
       let data = await apiCalls.deleteFontPairById(currentPair.id)
-      // console.log("data: ", data)
       if (data) {
         removePairFromView(currentPair.id)
       }
@@ -14,7 +13,7 @@ function DeletePair({currentPair, i, removePairFromView}) {
   }
 
   return (
-    <button onClick={handleDeletePair}>Delete Font Pair {i}</button>
+    <button onClick={handleDeletePair}>Delete {currentPair.font1}/{currentPair.font2}</button>
   )
 }
 

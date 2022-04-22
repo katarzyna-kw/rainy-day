@@ -65,11 +65,10 @@ apiCalls.getFontPairById = async (fontPairId) => {
     () => axios.get(`${BASE_URL}/font-pairs/${fontPairId}/`, apiHelpers.getCsrfConfig()))
 }
 
-// PUT to the detail view => update one
-// PATCH to the detail view => partial up date one
-apiCalls.updateFontPairById = async (fontPairId) => {
+apiCalls.updateFontPairById = async (fontPairId, newData) => {
+  console.log("csrf: ", apiHelpers.getCsrfConfig())
   return await apiHelpers.tryCatchFetch(
-    () => axios.put(`${BASE_URL}/font-pairs/${fontPairId}/`, apiHelpers.getCsrfConfig()))
+    () => axios.patch(`${BASE_URL}/font-pairs/${fontPairId}/`, newData, apiHelpers.getCsrfConfig()))
 }
 
 apiCalls.deleteFontPairById = async (fontPairId) => {

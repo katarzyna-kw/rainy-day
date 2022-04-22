@@ -21,8 +21,12 @@ apiGeneratePalettes.generateComplementaryPalette = async (color) => {
 }
 
 apiGeneratePalettes.generateNeutral = async (color) => {
+  if (color==='FFFFFF') {
+    return await apiHelpers.tryCatchFetch(
+      () => axios.get(`${BASE_URL}${color}&mode=analogic&count=10`))  
+  }
   return await apiHelpers.tryCatchFetch(
-    () => axios.get(`${BASE_URL}${color}&mode=analogic&count=10`))
+    () => axios.get(`${BASE_URL}${color}&mode=monochrome-dark&count=10`))
 }
 
 apiGeneratePalettes.getSingleColor = async (color) => {

@@ -12,8 +12,8 @@ apiGenerateFonts.generateAllFonts = async () => {
     () => axios.get(`${fontEndpoint}${fontKey}&sort=popularity`)
   )
   let updatedData = []
-  if (data.items.length >= 155) {
-    updatedData = [...data.items].splice(0, 154)
+  if (data.items.length >= 200) {
+    updatedData = [...data.items].splice(0, 200)
   } else {
     updatedData = [...data.items]
   }
