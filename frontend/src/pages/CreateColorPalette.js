@@ -3,7 +3,7 @@ import UpdateColor from '../components/UpdateColor'
 
 function CreateColorPalette() {
 
-  const [baseColor, setBaseColor] = useState('FFFFFF')
+  const [baseColor, setBaseColor] = useState('f21717')
 
   return (
     <section>

@@ -31,9 +31,9 @@ function UpdateColor({baseColor, setBaseColor}) {
     return () => window.removeEventListener("resize", updateColorPickerSize);
   })
 
-
   useEffect(() => {
     setBaseColor(color)
+    // showContrastingPalette(baseColor) -- does render on load but then causes 
   })
 
   const showContrastingPalette = async () => {
@@ -98,16 +98,6 @@ function UpdateColor({baseColor, setBaseColor}) {
         <h4>Generate a palette:</h4>
         <div className="btn__container">
 
-        {/* <li
-          data-testid="daily"
-          className={
-            timeframe === "daily"
-              ? "profile__parameters-links active"
-              : "profile__parameters-links"
-          }
-          onClick={() => view("daily")}
-        > */}
-
           <button 
             className={contrastingPalette ? "btn active-palette": "btn"}
             onClick={showContrastingPalette}
@@ -127,7 +117,7 @@ function UpdateColor({baseColor, setBaseColor}) {
             Complementary
           </button>
         </div>
-        {contrastingPalette && <GeneratePalette currentPalette={contrastingPalette} title="Contrasting" />}
+        {contrastingPalette && <GeneratePalette baseColor={baseColor} currentPalette={contrastingPalette} showContrastingPalette={showContrastingPalette} title="Contrasting" />}
         {analogicPalette && <GeneratePalette currentPalette={analogicPalette} title="Analogic"/>}
         {complementaryPalette && <GeneratePalette currentPalette={complementaryPalette} title="Complementary"/>}
       </div>

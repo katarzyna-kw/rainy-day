@@ -1,10 +1,9 @@
-import React from 'react'
+import {useEffect} from 'react'
 import SavePaletteForm from '../SavePaletteForm/'
 import './GeneratePalette.css'
 
 function GeneratePalette({currentPalette, title}) {
 
-  console.log("current palette in Gen Pal: ", currentPalette)
   return (
     <div className='generate-palette__container'>
       <h2>{title}</h2>
