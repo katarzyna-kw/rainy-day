@@ -76,7 +76,7 @@ function EditFontPair() {
   // [handleEditFontPair])
 
   return (
-    <section>
+    <section className="section-column">
       <h2>Edit a Font Pair</h2>
       <GenerateFont fonts={serifFonts} font={font1} setFont={setFont1} initialFont={font1} />
       <GenerateFont fonts={sansSerifFonts} font={font2} setFont={setFont2} initialFont={font2} />

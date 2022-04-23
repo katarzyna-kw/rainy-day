@@ -33,7 +33,7 @@ function UpdateColor({baseColor, setBaseColor}) {
 
   useEffect(() => {
     setBaseColor(color)
-    // showContrastingPalette(baseColor) -- does render on load but then causes 
+    // showContrastingPalette(baseColor) -
   })
 
   const showContrastingPalette = async () => {

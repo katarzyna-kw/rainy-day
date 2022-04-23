@@ -1,6 +1,7 @@
 import FontOutput from '../FontOutput'
+import './GenerateFont.css'
 
-function GenerateFont({fonts, font, setFont, initialFont}) {
+function GenerateFont({fonts, font, setFont, initialFont, num}) {
 
 
   const handleSelect = (e) => {
@@ -9,14 +10,15 @@ function GenerateFont({fonts, font, setFont, initialFont}) {
 
   return (
     <div className="generate-font__container">
-      <label htmlFor="font1">
-        <select className='selector--font' name="font1" onChange={handleSelect}>
+      <div className='input__container'>
+        <label htmlFor="font">Choose Font {num}:</label>
+        <select className='selector--font' name="font" onChange={handleSelect}>
           <option value={initialFont}>{initialFont}</option>
           {fonts && fonts.map((ft, i) => (
             <option key={i} value={ft.family}>{ft.family}</option>
           ))}
         </select>
-      </label>
+      </div>
       <div className='display__container'>
         <FontOutput font={font} />
       </div>

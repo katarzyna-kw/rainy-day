@@ -55,7 +55,7 @@ function SignUp() {
   }
 
   return (
-    <div className="login__container">
+    <section className="section-column">
       <h2>Sign up</h2>
       <form onSubmit={handleSignUp} method="POST">
       <label>First Name: </label>
@@ -73,7 +73,7 @@ function SignUp() {
         </button>
       </form> 
       {error && <p>Try to log in to see if user already exists.</p>}
-    </div>
+    </section>
   )
 }
 

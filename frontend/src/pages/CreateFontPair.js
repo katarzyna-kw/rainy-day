@@ -53,10 +53,10 @@ function CreateFontPair() {
 
 
   return (
-    <section>
+    <section className="section-column">
       <h2>Create a Font Pair</h2>
-      <GenerateFont fonts={serifFonts} font={font1} setFont={setFont1} initialFont="Prata" />
-      <GenerateFont fonts={sansSerifFonts} font={font2} setFont={setFont2} initialFont="Anybody" />
+      <GenerateFont fonts={serifFonts} font={font1} setFont={setFont1} initialFont="Prata" num="1" />
+      <GenerateFont fonts={sansSerifFonts} font={font2} setFont={setFont2} initialFont="Anybody" num="2" />
       <button className='save-btn' onClick={handleSaveFontPair}>Save Font Pair</button>
       {feedback && <p>{feedback}</p>}
     </section>

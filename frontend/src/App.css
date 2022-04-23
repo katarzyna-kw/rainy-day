@@ -16,12 +16,14 @@
   width: 97%;
 }
 
-section {
+.section-column,
+.section-row {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   width: 100%;
+  /* background-color: aqua; */
 }
 
 @media(min-width:768px) {
@@ -29,7 +31,7 @@ section {
     width: 90%;
   }
 
-  section {
+  .section-row {
     flex-flow: row wrap;
     justify-content: center;
     align-items: flex-start;  

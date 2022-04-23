@@ -44,7 +44,7 @@ function ViewMyStyles({user}) {
 
 
   return (
-    <div>
+    <section className="section-column">
       <h2>My Styles</h2>
       {palettes && palettes.map((palette) => (
         <ShowPalette key={palette.id} currentPalette={palette} removePaletteFromView={removePaletteFromView} editNameInView={editNameInView} />
@@ -52,7 +52,7 @@ function ViewMyStyles({user}) {
       {fontPairs && fontPairs.map((pair, i) => (
         <ShowFontPair key={pair.id} currentPair={pair} removePairFromView={removePairFromView} />
       ))}
-    </div>
+    </section>
   )
 }
 

@@ -1,0 +1,42 @@
+.generate-font__container {
+  width: 90%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.input__container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.input__container label {
+  padding-right: .5rem;
+}
+
+.input__container select {
+  padding: .5rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0 .2rem;
+}
+
+
+.display__container {
+  background-color: var(--accent);
+  width: 80%;
+  margin: 1rem 1rem 2rem 1rem;
+  padding: .5rem 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+@media(min-width: 768px) {
+  .display__container {
+    background-color: var(--accent);
+    width: 60%;
+  }
+}

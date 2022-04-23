@@ -47,7 +47,7 @@ function LogIn({setUser, user}) {
   }
 
   return (
-    <section>
+    <section className="section-column">
       <h2>Login</h2>
       <form id="login-form" onSubmit={handleLogin} method="POST">
         <label>Email: </label>

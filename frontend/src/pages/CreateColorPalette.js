@@ -6,7 +6,7 @@ function CreateColorPalette() {
   const [baseColor, setBaseColor] = useState('f21717')
 
   return (
-    <section>
+    <section className="section-row">
       <UpdateColor baseColor={baseColor} setBaseColor={setBaseColor}/>
     </section>
   )
