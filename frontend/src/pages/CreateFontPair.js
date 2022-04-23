@@ -53,13 +53,13 @@ function CreateFontPair() {
 
 
   return (
-    <div className="generate-palette__container">
+    <section>
       <h2>Create a Font Pair</h2>
       <GenerateFont fonts={serifFonts} font={font1} setFont={setFont1} initialFont="Prata" />
       <GenerateFont fonts={sansSerifFonts} font={font2} setFont={setFont2} initialFont="Anybody" />
       <button className='save-btn' onClick={handleSaveFontPair}>Save Font Pair</button>
       {feedback && <p>{feedback}</p>}
-    </div>
+    </section>
   )
 }
 

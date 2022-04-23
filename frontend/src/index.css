@@ -2,6 +2,7 @@
 /* #FF89FF - pink
 #FF4F2D - red */
 /* #E6EBFF - gray */
+/* F2F2F1 */
 
 .light {
   --bg: #fff;
@@ -23,7 +24,6 @@
   --navlink-hover: #7894ff;
 }
 
-
 body {
   margin: 0;
   padding: 0;
@@ -31,4 +31,8 @@ body {
   font-family: 'Prata', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
 }

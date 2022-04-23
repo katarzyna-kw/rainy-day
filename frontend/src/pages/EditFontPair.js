@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react'
-import {useLocation} from 'react-router-dom'
 import { useParams } from 'react-router-dom';
 import apiGenerateFonts from '../api/apiGenerateFonts'
 import GenerateFont from '../components/GenerateFont'
@@ -9,13 +8,12 @@ function EditFontPair() {
 
   const params = useParams()
 
-  const fontPairIndex = params.fontPairId
-  const location = useLocation()
-  const currentPair = location.state;
+  let fontPairId = params.fontPairId
+
   const [serifFonts, setSerifFonts] = useState(null)
   const [sansSerifFonts, setSansSerifFonts] = useState(null)
-  const [font1, setFont1] = useState(currentPair.font1)
-  const [font2, setFont2] = useState(currentPair.font2)
+  const [font1, setFont1] = useState(null)
+  const [font2, setFont2] = useState(null)
   const [feedback, setFeedback] = useState(null)
 
   useEffect(() => {
@@ -32,6 +30,20 @@ function EditFontPair() {
     }
   }
 
+  useEffect(() => {
+    console.log("fontpairid: ", fontPairId)
+    getCurrentPair()
+  }, [fontPairId])
+
+  const getCurrentPair = async () => {
+    
+    const data = await apiCalls.getFontPairById(fontPairId)
+    if (data) {
+      setFont1(data.font1)
+      setFont2(data.font2)
+    }
+  } 
+
   const handleEditFontPair = async (e) => {
     e.preventDefault()
 
@@ -41,9 +53,9 @@ function EditFontPair() {
       }
   
       console.log("updated fonts data pre axios: ", newFontsData)
-      console.log("currentpair id pre axios: ", currentPair.id)
+      console.log("currentpair id pre axios: ", fontPairId)
   
-      const data = await apiCalls.updateFontPairById(currentPair.id, newFontsData)
+      const data = await apiCalls.updateFontPairById(fontPairId, newFontsData)
   
       console.log("data from axios call: ", data)
   
@@ -56,21 +68,21 @@ function EditFontPair() {
     }
   }
 
-  useEffect(() => {
-    console.log("currentpair in effect: ", currentPair)
-    // setFont1(currentPair.font1)
-    // setFont2(currentPair.font2)
-    }, 
-  [handleEditFontPair])
+  // useEffect(() => {
+  //   console.log("currentpair in effect: ", currentPair)
+  //   // setFont1(currentPair.font1)
+  //   // setFont2(currentPair.font2)
+  //   }, 
+  // [handleEditFontPair])
 
   return (
-    <div className="generate-palette__container">
+    <section>
       <h2>Edit a Font Pair</h2>
-      <GenerateFont fonts={serifFonts} font={font1} setFont={setFont1} initialFont={currentPair.font1} />
-      <GenerateFont fonts={sansSerifFonts} font={font2} setFont={setFont2} initialFont={currentPair.font2} />
+      <GenerateFont fonts={serifFonts} font={font1} setFont={setFont1} initialFont={font1} />
+      <GenerateFont fonts={sansSerifFonts} font={font2} setFont={setFont2} initialFont={font2} />
       <button className='save-btn' onClick={handleEditFontPair}>Save Font Pair</button>
       {feedback && <p>{feedback}</p>}
-    </div>
+    </section>
   )
 }
 

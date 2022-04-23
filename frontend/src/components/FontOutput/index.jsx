@@ -3,13 +3,15 @@ import WebFont from 'webfontloader'
 
 function FontOutput({font}) {
 
+  const currentFont = font
+
   useEffect(() => {
     WebFont.load({
       google: {
         families: [`${font}`]
       }
     })
-  }, [font])
+  }, [currentFont])
 
   return (
     <div className="show-font__container">

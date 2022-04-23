@@ -23,7 +23,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App light">
+    <main className="App light">
       <HashRouter>
         <Header user={user} setUser={setUser}/>
         <div className="page__container">
@@ -60,7 +60,7 @@ function App() {
           </Routes>
         </div>
       </HashRouter>
-    </div>
+    </main>
   );
 }
 

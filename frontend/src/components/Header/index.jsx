@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
+import logo from '../../assets/rainy-bw.png'
 
 function Header({user, setUser}) {
 
@@ -32,7 +33,8 @@ function Header({user, setUser}) {
       <div className="header__head">
         <div className="logo__container">
           <Link to="/" className="logo">
-            Save it for a rainy day
+            {/* <img className="logo-img" src={logo} /> */}
+            saved for a rainy day
           </Link>
         </div>
         {isMobile && 

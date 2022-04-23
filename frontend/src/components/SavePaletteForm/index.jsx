@@ -1,5 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import {useState} from 'react'
 import apiCalls from '../../api/apiCalls'
+import './SavePaletteForm.css'
 
 function SavePaletteForm({currentPalette}) {
 
@@ -14,15 +17,11 @@ function SavePaletteForm({currentPalette}) {
         color3: currentPalette[2].value,
         color4: currentPalette[3].value,
       }
-  
-      // console.log("palette data: ", paletteData)
-  
+    
       const data = await apiCalls.createColorPalette(paletteData)
-  
-      // console.log("data: ", data)
-  
+    
       if (data) {
-        console.log("received data", data)
+        // console.log("received data", data)
         setFeedback('Palette saved')
       }
       else {
@@ -32,13 +31,21 @@ function SavePaletteForm({currentPalette}) {
 
 
   return (
-    <form className='button__container' onSubmit={handleSavePalette} method="POST">
-      <label>Name of palette: </label>
-      <input type="text" name="name" placeholder="Enter palette name" />
-      <button className='save-btn'>
-        Save Color Palette
-      </button>
-      <p>{feedback}</p>
+    <form className='form__container' onSubmit={handleSavePalette} method="POST">
+        <label className='screenreader-only'>Palette Name: </label>
+        <input type="text" name="name" placeholder="Enter palette name" />
+        <button className='save-btn' role='button'>
+          Save
+        </button>
+      <div className='feedback'>
+        {feedback === 'Palette saved' 
+          && <FontAwesomeIcon className="feedback-icon success" icon={faCheck} />
+        }
+        {feedback === 'Palette was not saved. Try again.' 
+          && <FontAwesomeIcon className="feedback-icon error" icon={faExclamationTriangle} />
+        }
+        <p className='feedback__text'>{feedback}</p>
+      </div>
     </form>
   )
 }

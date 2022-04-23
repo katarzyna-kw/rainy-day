@@ -6,10 +6,9 @@ function CreateColorPalette() {
   const [baseColor, setBaseColor] = useState('FFFFFF')
 
   return (
-    <div className="create__container">
-      <h2>Pick a base color:</h2>
+    <section>
       <UpdateColor baseColor={baseColor} setBaseColor={setBaseColor}/>
-    </div>
+    </section>
   )
 }
 

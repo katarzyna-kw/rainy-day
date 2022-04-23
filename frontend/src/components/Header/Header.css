@@ -20,11 +20,18 @@
 .logo {
   color: var(--logo);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .logo:hover, 
 .logo:active {
   color: var(--logo-hover);
+}
+
+.logo-img {
+  width: 300px;
+  height: auto;
+  margin-top: 1rem;
 }
 
 .toggler__container {

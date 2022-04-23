@@ -13,7 +13,7 @@ function ShowFontPair({currentPair, removePairFromView}) {
         <FontOutput key={i} font={font} removePairFromView={removePairFromView} />
       ))}
       <DeletePair currentPair={currentPair} removePairFromView={removePairFromView} />
-      <Link to={`/edit-font-pair/:${currentPair.id}`} state={currentPair}>
+      <Link to={`/edit-font-pair/${currentPair.id}`} state={currentPair}>
         <button>Edit {currentPair.font1}/{currentPair.font2}</button>
       </Link>
     </div>

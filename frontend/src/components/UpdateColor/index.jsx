@@ -3,6 +3,7 @@ import { ColorPicker, useColor } from 'react-color-palette'
 import 'react-color-palette/lib/css/styles.css';
 import apiGeneratePalettes from '../../api/apiGeneratePalettes';
 import GeneratePalette from '../GeneratePalette';
+import './UpdatePalette.css'
 
 function UpdateColor({baseColor, setBaseColor}) {
 
@@ -11,6 +12,25 @@ function UpdateColor({baseColor, setBaseColor}) {
   const [analogicPalette, setAnalogicPalette] = useState(null)
   const [complementaryPalette, setComplementaryPalette] = useState(null)
   const [arrayToExport, setArrayToExport] = useState(null)
+  const [isMobile, setIsMobile] = useState(false);
+  const [colorPickerSize, setColorPickerSize] = useState(300)
+
+  const updateColorPickerSize = () => {
+    if (window.innerWidth < 300) {
+      setIsMobile(true)
+      setColorPickerSize(200)
+    }
+    else {
+      setIsMobile(false)
+      setColorPickerSize(300)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", updateColorPickerSize);
+    return () => window.removeEventListener("resize", updateColorPickerSize);
+  })
+
 
   useEffect(() => {
     setBaseColor(color)
@@ -68,21 +88,32 @@ function UpdateColor({baseColor, setBaseColor}) {
     }
   }
 
+
+  // onChange={e => { this.functionOne(e); this.functionTwo() }}
+
   return (
     <div className="create__container">
-      <ColorPicker width={228} height={114} color={color} onChange={setColor} hideRGB light />
-      <button onClick={showContrastingPalette}>
-        Generate contrasting palette
-      </button>
-      <button onClick={showAnalogicPalette}>
-        Generate analogic palette
-      </button>
-      <button onClick={showComplementaryPalette}>
-        Generate complementary palette
-      </button>
-      {contrastingPalette && <GeneratePalette currentPalette={contrastingPalette} title="Contrasting" />}
-      {analogicPalette && <GeneratePalette currentPalette={analogicPalette} title="Analogic"/>}
-      {complementaryPalette && <GeneratePalette currentPalette={complementaryPalette} title="Complementary"/>}
+      <div className='colorpicker__container'>
+        <h4>Pick a base color:</h4>
+        <ColorPicker className="color-picker" width={colorPickerSize} height={200} color={color} onChange={setColor} hideRGB light />
+      </div>
+      <div className='palettes__container'>
+        <h4>Generate a palette:</h4>
+        <div className="btn__container">
+          <button className="btn" onClick={showContrastingPalette}>
+            Contrasting
+          </button>
+          <button className="btn" onClick={showAnalogicPalette}>
+            Analogic
+          </button>
+          <button className="btn" onClick={showComplementaryPalette}>
+            Complementary
+          </button>
+        </div>
+        {contrastingPalette && <GeneratePalette currentPalette={contrastingPalette} title="Contrasting" />}
+        {analogicPalette && <GeneratePalette currentPalette={analogicPalette} title="Analogic"/>}
+        {complementaryPalette && <GeneratePalette currentPalette={complementaryPalette} title="Complementary"/>}
+      </div>
     </div>
   )
 }

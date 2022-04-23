@@ -47,7 +47,7 @@ function LogIn({setUser, user}) {
   }
 
   return (
-    <div className="login__container">
+    <section>
       <h2>Login</h2>
       <form id="login-form" onSubmit={handleLogin} method="POST">
         <label>Email: </label>
@@ -62,7 +62,7 @@ function LogIn({setUser, user}) {
         </button>
       </form>
       {loginError && <p>Username and password do not match.</p>}
-    </div>
+    </section>
   )
 }
 
