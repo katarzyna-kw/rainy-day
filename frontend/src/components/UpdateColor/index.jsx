@@ -95,7 +95,8 @@ function UpdateColor({baseColor, setBaseColor}) {
     <div className="create__container">
       <div className='colorpicker__container'>
         <h4>Pick a base color:</h4>
-        <ColorPicker className="color-picker" width={colorPickerSize} height={200} color={color} onChange={setColor} hideRGB light />
+        {/* <ColorPicker className="color-picker" width={colorPickerSize} height={200} color={color} onChange={setColor} hideRGB light /> */}
+        <ColorPicker className="color-picker" width={colorPickerSize} height={200} color={color} onChange={e => {setColor(e); showContrastingPalette(e) }} hideRGB light />
       </div>
       <div className='palettes__container'>
         <h4>Generate a palette:</h4>
