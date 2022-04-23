@@ -88,26 +88,42 @@ function UpdateColor({baseColor, setBaseColor}) {
     }
   }
 
-
-  // onChange={e => { this.functionOne(e); this.functionTwo() }}
-
   return (
     <div className="create__container">
       <div className='colorpicker__container'>
         <h4>Pick a base color:</h4>
-        {/* <ColorPicker className="color-picker" width={colorPickerSize} height={200} color={color} onChange={setColor} hideRGB light /> */}
         <ColorPicker className="color-picker" width={colorPickerSize} height={200} color={color} onChange={e => {setColor(e); showContrastingPalette(e) }} hideRGB light />
       </div>
       <div className='palettes__container'>
         <h4>Generate a palette:</h4>
         <div className="btn__container">
-          <button className="btn" onClick={showContrastingPalette}>
+
+        {/* <li
+          data-testid="daily"
+          className={
+            timeframe === "daily"
+              ? "profile__parameters-links active"
+              : "profile__parameters-links"
+          }
+          onClick={() => view("daily")}
+        > */}
+
+          <button 
+            className={contrastingPalette ? "btn active-palette": "btn"}
+            onClick={showContrastingPalette}
+          >
             Contrasting
           </button>
-          <button className="btn" onClick={showAnalogicPalette}>
+          <button 
+            className={analogicPalette ? "btn active-palette": "btn"}
+            onClick={showAnalogicPalette}
+          >
             Analogic
           </button>
-          <button className="btn" onClick={showComplementaryPalette}>
+          <button 
+            className={complementaryPalette ? "btn active-palette": "btn"}
+            onClick={showComplementaryPalette}
+          >
             Complementary
           </button>
         </div>

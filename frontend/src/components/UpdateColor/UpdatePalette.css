@@ -54,6 +54,12 @@
   border: 1px solid #111;
 }
 
+.active-palette {
+  background-color: #fff;
+  color: #111;
+  border: 1px solid #111;
+}
+
 @media(min-width:768px) {
   .create__container {
     flex-flow: row wrap;
