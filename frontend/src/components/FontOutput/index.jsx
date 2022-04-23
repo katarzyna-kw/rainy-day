@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
 import WebFont from 'webfontloader'
 
-function FontOutput({font}) {
+function FontOutput({font, bgColor, fontColor}) {
 
   const currentFont = font
 
@@ -14,11 +14,11 @@ function FontOutput({font}) {
   }, [currentFont])
 
   return (
-    <div className="show-font__container">
-    <h3 style={{fontFamily: `${font}`}}>
+    <div className="show-font__container" style={{backgroundColor: `${bgColor}`}}>
+    <h3 style={{fontFamily: `${font}`, color: `${fontColor}`}}>
       The brown dog jumped over the gray fox.
     </h3>
-    <h3 style={{fontFamily: `${font}`}}>THE BROWN DOG JUMPED OVER THE GRAY FOX.</h3>
+    <h3 style={{fontFamily: `${font}`, color: `${fontColor}`}}>THE BROWN DOG JUMPED OVER THE GRAY FOX.</h3>
     </div>
     )
 }

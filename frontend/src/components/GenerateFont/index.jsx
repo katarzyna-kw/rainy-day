@@ -1,11 +1,25 @@
+import {useState} from 'react'
 import FontOutput from '../FontOutput'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import './GenerateFont.css'
 
 function GenerateFont({fonts, font, setFont, initialFont, num}) {
 
+  const [bgColor, setBgColor] = useState('#F2F2F1')
+  const [fontColor, setFontColor] = useState('#000000')
 
   const handleSelect = (e) => {
     setFont(e.target.value)
+  }
+
+  const handleHover = (color) => {
+    if (color==="#111211") {
+      setFontColor("#FFFFFF")
+    } else {
+      setFontColor("#000000")
+    }
+    setBgColor(color)
   }
 
   return (
@@ -20,7 +34,12 @@ function GenerateFont({fonts, font, setFont, initialFont, num}) {
         </select>
       </div>
       <div className='display__container'>
-        <FontOutput font={font} />
+        <FontOutput font={font} bgColor={bgColor} fontColor={fontColor} />
+        <div className='display--colors'>
+          <FontAwesomeIcon className="circle gray" icon={faCircle} onClick={() => handleHover('#F2F2F1')}/>
+          <FontAwesomeIcon className="circle yellow" icon={faCircle} onClick={() => handleHover('#F1E766')}/>
+          <FontAwesomeIcon className="circle black" icon={faCircle} onClick={() => handleHover('#111211')}/>
+        </div>
       </div>
     </div>
   )
