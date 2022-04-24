@@ -67,7 +67,7 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
   return (
     <div className="show-palette__container">
       <h2>{currentPalette.name}</h2>
-      <div className='palette__container'>
+      <div className='palette__container--view'>
         {currentPalette.colors.map((color, i) => 
           color && (
           <div key={i} style={{backgroundColor: `${color}`}}className='palette-color'>
@@ -77,7 +77,7 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
           </div>
         ))}
         {(!lightNeutral && !currentPalette.color5) && 
-          <div className="palette-color clickable--light" onClick={() => addNeutral('FFFFFF')}>
+          <div className="clickable--light" onClick={() => addNeutral('FFFFFF')}>
             {(currentPalette.color5!== null) ? currentPalette.color5 : "Add a light neutral color"}
           </div>
         }
@@ -89,7 +89,7 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
           </div>
         }
         {(!darkNeutral && !currentPalette.color6) && 
-          <div style={{backgroundColor: `${currentPalette.color6}`}} className="palette-color clickable--dark" onClick={() => addNeutral('0A0B0A')}>
+          <div style={{backgroundColor: `${currentPalette.color6}`}} className="clickable--dark" onClick={() => addNeutral('0A0B0A')}>
             {(currentPalette.color6!== null) ? currentPalette.color6 : "Add a dark neutral color"}
           </div>
         } 
