@@ -1,21 +1,5 @@
-.form__container {
+.form__container--save {
   margin-top: 20px;
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-/* .form__user-input {
-  margin: .5rem;
-} */
-
-.form__container input {
-  padding: .5rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: 0 .2rem;
 }
 
 .screenreader-only {

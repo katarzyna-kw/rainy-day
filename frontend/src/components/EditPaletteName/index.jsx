@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faXmark, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import {useState} from 'react'
 import apiCalls from '../../api/apiCalls'
 
@@ -31,6 +33,7 @@ function EditPaletteName({currentPalette, renaming, setRenaming, editNameInView}
   const cancelEdit = (e) => {
     e.preventDefault()
     setRenaming(false)
+    setRenameError(false)
   }
 
   return (
@@ -39,13 +42,23 @@ function EditPaletteName({currentPalette, renaming, setRenaming, editNameInView}
       <button className="btn rename" onClick={handleNameEdit}>Rename</button>
       }
       {renaming && 
-      <div className='form__container'>
-        <form className="input__container" onSubmit={editName} method="PATCH" >
-          <input type="text" name="new_name" />
-          <button>save</button>
-        </form>
-        <button onClick={cancelEdit}>x</button>
-        {renameError && <p>Palette name cannot be blank.</p>}
+      <div className='form__container form__container--edit'>
+        <div className="fields__container">
+          <form className="input__container--edit" onSubmit={editName} method="PATCH" >
+            <input type="text" name="new_name" />
+            <button className="btn sml ok">
+              <FontAwesomeIcon className="" icon={faCheck} />
+            </button>
+          </form>
+          <button className="btn sml cancel" onClick={cancelEdit}>
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
+        </div>
+        {renameError && <div className='feedback--edit'>
+          <FontAwesomeIcon className="feedback-icon error icon--error-edit" icon={faExclamationTriangle} />
+          <p className='feedback__text'>Cannot be blank</p>
+        </div>
+        }
       </div>
       }
     </div>

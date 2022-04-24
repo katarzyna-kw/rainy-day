@@ -15,8 +15,9 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 10px;
+  /* background-color: lime; */
 }
 
 .delete {
@@ -35,6 +36,75 @@
   color: #FFFFFF;
 }
 
-.rename, .delete {
+.rename, 
+.delete,
+.form__container--edit input {
   margin-top: 5px;
+}
+
+.edit__container--edit {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__container--edit {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.fields__container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  /* background-color: hotpink; */
+}
+
+.feedback--edit {
+  padding: .5rem;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon--error-edit {
+  margin-top: -.2rem;
+}
+
+.feedback__text {
+  padding: 0;
+  margin: 0;
+  font-size: .8rem;
+}
+
+.input__container--edit {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  margin-top: 0;
+}
+
+.sml {
+  min-width: 5px;
+  padding: .2rem .5rem;
+}
+
+.ok:hover {
+  background-color: var(--rename);
+  color: #FFFFFF;
+  border: 1px solid var(--rename);
+
+}
+
+.cancel {
+  padding: .2rem .6rem;
+  background-color: var(--accent);
+  color: #000000;
 }

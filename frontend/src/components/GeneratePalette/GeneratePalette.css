@@ -21,22 +21,6 @@
   align-items: center;
 }
 
-/* .palette-color:nth-child(1) {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-} */
-
-/* .palette-color:last-child {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-} */
-
-/* .palette-color:nth-last-of-type(1) {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-} */
-
-
 .palette-color__text {
   background-color: white;
   border-radius: 10px;
@@ -53,23 +37,4 @@
   .palette-color {
     height: 125px;
   }
-
-  /* .palette-color:nth-child(1) {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 0;
-  }
-  
-  .palette-color:nth-child(2) {
-    border-top-right-radius: 10px;
-  }
-  
-  .palette-color:nth-last-of-type(2) {
-    border-bottom-left-radius: 10px;
-  }
-  
-  .palette-color:nth-last-of-type(1) {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 10px;
-  }   */
-  
 }
