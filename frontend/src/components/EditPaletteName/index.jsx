@@ -36,7 +36,7 @@ function EditPaletteName({currentPalette, renaming, setRenaming, editNameInView}
   return (
     <div className='edit__container'>
       {!renaming && 
-      <button onClick={handleNameEdit}>Rename {currentPalette.name} palette</button>
+      <button className="btn rename" onClick={handleNameEdit}>Rename {currentPalette.name} palette</button>
       }
       {renaming && 
       <div className='form__container'>

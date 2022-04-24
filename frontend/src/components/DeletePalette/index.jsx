@@ -14,7 +14,7 @@ function DeletePalette({currentPalette, removePaletteFromView}) {
   }
 
   return (
-    <button onClick={handleDeletePalette}>Delete {currentPalette.name} palette</button>
+    <button className="btn delete" onClick={handleDeletePalette}>Delete {currentPalette.name} palette</button>
     )
 }
 

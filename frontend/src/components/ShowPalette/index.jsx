@@ -4,6 +4,7 @@ import apiGeneratePalettes from '../../api/apiGeneratePalettes'
 import EditPaletteColor from '../EditPaletteColor'
 import DeletePalette from '../DeletePalette'
 import EditPaletteName from '../EditPaletteName'
+import './ShowPalette.css'
 
 function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
 
@@ -67,35 +68,45 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
     <div className="show-palette__container">
       <h2>{currentPalette.name}</h2>
       <div className='palette__container'>
-        {currentPalette.colors.map((color, i) => (
-          <div key={i} style={{backgroundColor: `${color}`}}className='palette-color'>{color}</div>
+        {currentPalette.colors.map((color, i) => 
+          color && (
+          <div key={i} style={{backgroundColor: `${color}`}}className='palette-color'>
+            <p className="palette-color__text">
+              {color}
+            </p>
+          </div>
         ))}
         {(!lightNeutral && !currentPalette.color5) && 
-        <div style={{backgroundColor: `${currentPalette.color5}`}} className="palette-color clickable" onClick={() => addNeutral('FFFFFF')}>
-          {(currentPalette.color5!== null) ? currentPalette.color5 : "Add a light neutral color"}
-        </div>
-      }
+          <div className="palette-color clickable--light" onClick={() => addNeutral('FFFFFF')}>
+            {(currentPalette.color5!== null) ? currentPalette.color5 : "Add a light neutral color"}
+          </div>
+        }
         {lightNeutral && !currentPalette.color5 &&         
           <div style={{backgroundColor: `${lightNeutral}`}} className="palette-color">
-            {lightNeutral}
+            <p className="palette-color__text">
+              {lightNeutral}
+            </p>
           </div>
         }
         {(!darkNeutral && !currentPalette.color6) && 
-        <div style={{backgroundColor: `${currentPalette.color6}`}} className="palette-color clickable" onClick={() => addNeutral('0A0B0A')}>
-          {(currentPalette.color6!== null) ? currentPalette.color6 : "Add a dark neutral color"}
-        </div>
-      } 
+          <div style={{backgroundColor: `${currentPalette.color6}`}} className="palette-color clickable--dark" onClick={() => addNeutral('0A0B0A')}>
+            {(currentPalette.color6!== null) ? currentPalette.color6 : "Add a dark neutral color"}
+          </div>
+        } 
         {darkNeutral && !currentPalette.color6 &&    
           <div style={{backgroundColor: `${darkNeutral}`}} className="palette-color">
-            {darkNeutral}
+            <p className="palette-color__text">
+              {darkNeutral}
+            </p>
           </div>
         }
-
         <EditPaletteColor neutral={lightNeutral} neutralSet={setLightNeutral} addNeutralToPalette={addNeutralToPalette} isSaved={lightIsSaved} setIsSaved={setLightIsSaved} neutralError={lightError} adjective="light" />
         <EditPaletteColor neutral={darkNeutral} neutralSet={setDarkNeutral} addNeutralToPalette={addNeutralToPalette} isSaved={darkIsSaved} setIsSaved={setDarkIsSaved} neutralError={darkError} adjective="dark" />
       </div>
-      <EditPaletteName currentPalette={currentPalette} renaming={renaming} setRenaming={setRenaming} editNameInView={editNameInView} />
-      <DeletePalette currentPalette={currentPalette} removePaletteFromView={removePaletteFromView} />
+      <div className="palette-options--container">
+        <EditPaletteName currentPalette={currentPalette} renaming={renaming} setRenaming={setRenaming} editNameInView={editNameInView} />
+        <DeletePalette currentPalette={currentPalette} removePaletteFromView={removePaletteFromView} />
+      </div>
     </div>
   )
 }

@@ -1,0 +1,24 @@
+.show-palette__container {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.show-palette__container h2 {
+  text-align: center;
+}
+
+.palette-options--container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete {
+  background-color: var(--accent);
+  color: #000000;
+}
+
+.rename, .delete {
+  margin-top: 10px;
+}
