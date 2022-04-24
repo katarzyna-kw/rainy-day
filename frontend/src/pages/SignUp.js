@@ -8,7 +8,6 @@ function SignUp() {
   const navigate = useNavigate()
 
   const [error, setError] = useState(false)
-  const [blankEmailError, setBlankEmailError] = useState(false)
   const [validEmailError, setValidEmailError] = useState(false)
   const [nameError, setNameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
@@ -16,13 +15,9 @@ function SignUp() {
 
   const handleSignUp = async (e) => {
     e.preventDefault()
-    setBlankEmailError(false)
     setValidEmailError(false)
     setPasswordError(false)
     setNameError(false)
-    if (e.target.elements["username"].value === "") {
-      setBlankEmailError(true)
-    }
     if (e.target.elements["first_name"].value === "") {
       setNameError(true)
     }
@@ -57,18 +52,26 @@ function SignUp() {
   return (
     <section className="section-column">
       <h2>Sign up</h2>
-      <form onSubmit={handleSignUp} method="POST">
-      <label>First Name: </label>
-        <input type="text" name="first_name" placeholder="Enter first name" />
-        {nameError && <p>Name cannot be blank.</p>}
-        <label>Email: </label>
-        <input type="text" name="username" placeholder="Enter email" />
-        {blankEmailError && <p>Email cannot be blank.</p>}
-        {validEmailError && <p>Must enter valid email</p>}
-        <label>Password: </label>
-        <input type="text" name="password" placeholder="Enter password" />
-        {passwordError && <p>Password cannot be blank.</p>}
-        <button type="submit">
+      <form onSubmit={handleSignUp} method="POST" className="form__container form--user-info">
+        <div className='form-items'>
+          <div className='form-item'>
+            <label className='screenreader-only'>First Name: </label>
+            <input className={nameError ? 'input--user input--error' : 'input--user'} type="text" name="first_name" placeholder="First name" />
+            {nameError && <p className='user-input__error'>Name cannot be blank.</p>}
+          </div>
+          <div className='form-item'>
+            <label className='screenreader-only'>Email: </label>
+            <input className={(validEmailError) ? 'input--user input--error' : 'input--user'}  type="text" name="username" placeholder="Email address" />
+            {validEmailError && <p className='user-input__error'>Must enter valid email</p>}
+          </div>
+          <div className='form-item'>
+            <label className='screenreader-only'>Password: </label>
+            <input className={(validEmailError) ? 'input--user input--error' : 'input--user'} type="text" name="password" placeholder="Password" />
+            {passwordError && <p className='user-input__error'>Password cannot be blank.</p>}
+          </div>
+        </div>
+
+        <button className="btn" type="submit">
           Sign Up
         </button>
       </form> 

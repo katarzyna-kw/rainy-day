@@ -8,19 +8,14 @@ function LogIn({setUser, user}) {
 
   const navigate = useNavigate()
   const [loginError, setLoginError] = useState(false)
-  const [blankEmailError, setBlankEmailError] = useState(false)
   const [validEmailError, setValidEmailError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
 
   const handleLogin = async (e) => {
     e.preventDefault()
     setLoginError(false)
-    setBlankEmailError(false)
     setPasswordError(false)
     setValidEmailError(false)
-    if (e.target.elements["username"].value === "") {
-      setBlankEmailError(true)
-    }
     if (e.target.elements["password"].value === "") {
       setPasswordError(true)
     }
@@ -49,19 +44,24 @@ function LogIn({setUser, user}) {
   return (
     <section className="section-column">
       <h2>Login</h2>
-      <form id="login-form" onSubmit={handleLogin} method="POST">
-        <label>Email: </label>
-        <input type="text" name="username" placeholder="Enter email" />
-        {blankEmailError && <p>Must enter email</p>}
-        {validEmailError && <p>Must enter valid email</p>}
-        <label>Password: </label>
-        <input type="text" name="password" placeholder="Enter password" />
-        {passwordError && <p>Must enter password</p>}
-        <button type="submit">
-          Login
-        </button>
-      </form>
-      {loginError && <p>Username and password do not match.</p>}
+      <form id="login-form" onSubmit={handleLogin} method="POST" className="form__container form--user-info">
+      <div className='form-items'>
+          <div className='form-item'>
+            <label className='screenreader-only'>Email: </label>
+            <input className={validEmailError ? 'input--user input--error' : 'input--user'} type="text" name="username" placeholder="Enter email" />
+            {validEmailError && <p className='user-input__error'>Must enter valid email</p>}
+          </div>
+          <div className='form-item'>
+          <label className='screenreader-only'>Password: </label>
+          <input className={passwordError ? 'input--user input--error' : 'input--user'} type="text" name="password" placeholder="Enter password" />
+          {passwordError && <p className='user-input__error'>Must enter password</p>}
+        </div>
+      </div>
+      <button className="btn" type="submit">
+        Login
+      </button>
+    </form>
+    {loginError && <p>Username and password do not match.</p>}
     </section>
   )
 }

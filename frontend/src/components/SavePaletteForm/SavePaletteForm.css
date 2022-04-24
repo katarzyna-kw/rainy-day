@@ -2,15 +2,6 @@
   margin-top: 20px;
 }
 
-.screenreader-only {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-}
-
 .save-btn {
   padding: .5rem 1rem;
   outline: none;
@@ -46,9 +37,9 @@
 }
 
 .error {
-  color: #ff304c;
+  color: var(--bright);
 }
 
 .success {
-  color: #7994ff;
+  color: var(--success);
 }

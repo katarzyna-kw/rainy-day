@@ -70,9 +70,66 @@
 
 .form__container input {
   padding: .5rem;
-  border: 1px solid black;
   border-radius: 10px;
   margin: 0 .2rem;
+}
+
+.form--user-info {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: var(--accent);
+  width: 85%;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.form--user-info .form-items {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.form--user-info .form-item {
+  padding: 1rem 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.form--user-info label {
+  padding-right: 1rem;
+}
+
+.form--user-info input {
+  min-width: 300px;
+}
+
+.input--user {
+  border: 1px solid black;
+}
+
+.input--error {
+  border: 1px solid var(--bright);
+}
+
+.user-input__error {
+  color: var(--bright);
+  margin-top: .5rem;
+  width: 80%;
+  text-align: right;
+  font-size: .9rem;
+}
+
+.screenreader-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
 }
 
 @media(min-width:768px) {
@@ -84,6 +141,10 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: flex-start;  
+  }
+
+  .form--user-info {
+    width: 50%;
   }
 
   .palette__container--view {
@@ -100,5 +161,9 @@
 @media(min-width:1200px) {
   .page__container {
     width: 80%;
+  }
+
+  .form--user-info {
+    width: 40%;
   }
 }
