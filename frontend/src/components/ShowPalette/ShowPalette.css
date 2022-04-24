@@ -7,11 +7,16 @@
   text-align: center;
 }
 
+.palette__header {
+  margin-bottom: 0;
+}
+
 .palette-options--container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .delete {
@@ -19,6 +24,17 @@
   color: #000000;
 }
 
+.rename {
+  background-color: var(--rename);
+  color: #FFFFFF;
+  border: 1px solid var(--rename);
+}
+
+.rename:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
 .rename, .delete {
-  margin-top: 10px;
+  margin-top: 5px;
 }

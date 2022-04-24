@@ -66,7 +66,11 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
 
   return (
     <div className="show-palette__container">
-      <h2>{currentPalette.name}</h2>
+      <h2 className="palette__header">{currentPalette.name}</h2>
+      <div className="palette-options--container">
+        <EditPaletteName currentPalette={currentPalette} renaming={renaming} setRenaming={setRenaming} editNameInView={editNameInView} />
+        <DeletePalette currentPalette={currentPalette} removePaletteFromView={removePaletteFromView} />
+      </div>
       <div className='palette__container--view'>
         {currentPalette.colors.map((color, i) => 
           color && (
@@ -102,10 +106,6 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
         }
         <EditPaletteColor neutral={lightNeutral} neutralSet={setLightNeutral} addNeutralToPalette={addNeutralToPalette} isSaved={lightIsSaved} setIsSaved={setLightIsSaved} neutralError={lightError} adjective="light" />
         <EditPaletteColor neutral={darkNeutral} neutralSet={setDarkNeutral} addNeutralToPalette={addNeutralToPalette} isSaved={darkIsSaved} setIsSaved={setDarkIsSaved} neutralError={darkError} adjective="dark" />
-      </div>
-      <div className="palette-options--container">
-        <EditPaletteName currentPalette={currentPalette} renaming={renaming} setRenaming={setRenaming} editNameInView={editNameInView} />
-        <DeletePalette currentPalette={currentPalette} removePaletteFromView={removePaletteFromView} />
       </div>
     </div>
   )
