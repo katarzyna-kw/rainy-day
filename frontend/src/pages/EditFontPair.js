@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import apiGenerateFonts from '../api/apiGenerateFonts'
@@ -68,20 +70,21 @@ function EditFontPair() {
     }
   }
 
-  // useEffect(() => {
-  //   console.log("currentpair in effect: ", currentPair)
-  //   // setFont1(currentPair.font1)
-  //   // setFont2(currentPair.font2)
-  //   }, 
-  // [handleEditFontPair])
-
   return (
     <section className="section-column">
       <h2>Edit a Font Pair</h2>
       <GenerateFont fonts={serifFonts} font={font1} setFont={setFont1} initialFont={font1} />
       <GenerateFont fonts={sansSerifFonts} font={font2} setFont={setFont2} initialFont={font2} />
       <button className='save-btn' onClick={handleEditFontPair}>Save Font Pair</button>
-      {feedback && <p>{feedback}</p>}
+      <div className='feedback'>
+        {feedback === 'Font Pair saved' 
+          && <FontAwesomeIcon className="feedback-icon success" icon={faCheck} />
+        }
+        {feedback === 'Font Pair was not saved. Try again.' 
+          && <FontAwesomeIcon className="feedback-icon error" icon={faExclamationTriangle} />
+        }
+        <p className='feedback__text'>{feedback}</p>
+      </div>
     </section>
   )
 }

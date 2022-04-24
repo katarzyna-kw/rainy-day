@@ -21,7 +21,6 @@ function SavePaletteForm({currentPalette}) {
       const data = await apiCalls.createColorPalette(paletteData)
     
       if (data) {
-        // console.log("received data", data)
         setFeedback('Palette saved')
       }
       else {

@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import {useState, useEffect} from 'react'
 import apiGenerateFonts from '../api/apiGenerateFonts'
 import GenerateFont from '../components/GenerateFont'
@@ -21,7 +23,7 @@ function CreateFontPair() {
     if (data) {
       console.log("all fonts: ", data)
       let serifData = data.filter(font => font.category === "serif" || font.category === "display")
-      console.log("serif: ", serifData)
+      // console.log("serif: ", serifData)
       setSerifFonts(serifData)
       let sansSerifData = data.filter(font => font.category === "sans-serif").slice(0, 40)
       setSansSerifFonts(sansSerifData)
@@ -36,14 +38,13 @@ function CreateFontPair() {
         font2: font2,
       }
   
-      console.log("fonts data: ", fontsData)
+      // console.log("fonts data: ", fontsData)
   
       const data = await apiCalls.createFontPair(fontsData)
   
-      console.log("data: ", data)
+      // console.log("data: ", data)
   
       if (data) {
-        console.log("received data", data)
         setFeedback('Font Pair saved')
       }
       else {
@@ -58,7 +59,15 @@ function CreateFontPair() {
       <GenerateFont fonts={serifFonts} font={font1} setFont={setFont1} initialFont="Prata" num="1" />
       <GenerateFont fonts={sansSerifFonts} font={font2} setFont={setFont2} initialFont="Anybody" num="2" />
       <button className='save-btn' onClick={handleSaveFontPair}>Save Font Pair</button>
-      {feedback && <p>{feedback}</p>}
+      <div className='feedback'>
+        {feedback === 'Font Pair saved' 
+          && <FontAwesomeIcon className="feedback-icon success" icon={faCheck} />
+        }
+        {feedback === 'Font Pair was not saved. Try again.' 
+          && <FontAwesomeIcon className="feedback-icon error" icon={faExclamationTriangle} />
+        }
+        <p className='feedback__text'>{feedback}</p>
+      </div>
     </section>
   )
 }
