@@ -17,7 +17,6 @@
   justify-content: center;
   align-items: flex-start;
   margin-bottom: 10px;
-  /* background-color: lime; */
 }
 
 .delete {
@@ -25,7 +24,8 @@
   color: #000000;
 }
 
-.rename {
+.rename,
+.add {
   background-color: var(--rename);
   color: #FFFFFF;
   border: 1px solid var(--rename);
@@ -38,8 +38,13 @@
 
 .rename, 
 .delete,
+.add,
 .form__container--edit input {
   margin-top: 5px;
+}
+
+.add {
+  margin-bottom: 5px;
 }
 
 .edit__container--edit {
@@ -61,7 +66,6 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  /* background-color: hotpink; */
 }
 
 .feedback--edit {
@@ -107,4 +111,7 @@
   padding: .2rem .6rem;
   background-color: var(--accent);
   color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

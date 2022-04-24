@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+
 function EditPaletteColor({neutral, neutralSet, addNeutralToPalette, isSaved, setIsSaved, neutralError, adjective}) {
 
   const cancelEdit = (e) => {
@@ -11,13 +14,19 @@ function EditPaletteColor({neutral, neutralSet, addNeutralToPalette, isSaved, se
     <div className='edit__container'>
       {neutral && !isSaved &&
         <div className='btn__container'>
-          <button className='save-btn' onClick={() => addNeutralToPalette(neutral)}>
-            save palette with {adjective} neutral
+          <button className='save-btn add' onClick={() => addNeutralToPalette(neutral)}>
+            save {adjective} neutral to palette
           </button>
-          <button onClick={cancelEdit}>x</button>
+          <button className="btn sml cancel" onClick={cancelEdit}>
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
         </div>
       }
-      {neutralError && <p>Error saving palette. Try again.</p>}
+      {neutralError && <div className='feedback--edit'>
+          <FontAwesomeIcon className="feedback-icon error icon--error-edit" icon={faExclamationTriangle} />
+          <p className='feedback__text'>Error saving palette. Try again.</p>
+        </div>
+      }
     </div>
   )
 }
