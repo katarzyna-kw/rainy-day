@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
@@ -70,6 +71,7 @@ function App() {
           </Routes>
         </div>
       </HashRouter>
+      <Footer />
     </main>
   );
 }

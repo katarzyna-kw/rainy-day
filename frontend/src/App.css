@@ -1,5 +1,6 @@
 .App {
   width: 100%;
+  min-height: 100vh;
   margin: auto;
   box-sizing: border-box;
   background-color: var(--bg);
@@ -7,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   font-size: 16px;
   color: var(--base-text);
 }
