@@ -27,11 +27,7 @@
 }
 
 .embedded-links {
-  margin-top: .5rem;
   padding: .5rem;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .embedded {
@@ -67,6 +63,13 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    
   }  
+
+  .embedded-links {
+    margin-top: .5rem;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  
 }
