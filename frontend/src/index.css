@@ -19,10 +19,13 @@
   --logo-hover: #FF89FF;
   --navlink: #E6EBFF;
   --navlink-hover: #f1e766;
+  --dropdown-link: #7994ff;
   --accent: #F2F2F1;
   --rename: rgb(74, 73, 73);
   --bright: #ff304c;
   --success: #7994ff;
+  --bright--light: #99ebe4;
+  --plain: #FFFFFF;
 }
 
 .dark {

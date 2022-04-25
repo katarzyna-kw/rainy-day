@@ -38,13 +38,13 @@
 .embedded {
   text-align: center;
   text-decoration: none;
-  color: var(--success);
+  color: var(--plain);
   font-weight: 600;
 }
 
 .embedded:hover,
 .embedded:active {
-  color: var(--bright);
+  color: var(--navlink-hover);
 }
 
 .nav--button {
@@ -81,8 +81,18 @@
     background-color: white;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
+
+  .embedded {
+    color: var(--dropdown-link);
+  }
   
   .embedded-link {
     margin-bottom: .5rem;
   }
+
+  .embedded-link:hover {
+    background-color: var(--accent-text);
+    color: var(--plain);
+  } 
+
 }
