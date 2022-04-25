@@ -7,6 +7,8 @@ import LogIn from './pages/LogIn'
 import CreateColorPalette from './pages/CreateColorPalette'
 import CreateFontPair from './pages/CreateFontPair'
 import ViewMyStyles from './pages/ViewMyStyles'
+import ViewMyPalettes from './pages/ViewMyPalettes'
+import ViewMyFonts from './pages/ViewMyFonts'
 import EditFontPair from './pages/EditFontPair'
 import './App.css';
 
@@ -48,9 +50,17 @@ function App() {
               exact path="/create-font-pair" 
               element={ <CreateFontPair /> } 
             />
-            <Route 
+            {/* <Route 
               exact path="/view-styles" 
               element={ <ViewMyStyles /> } 
+            /> */}
+            <Route 
+              exact path="/view-palettes" 
+              element={ <ViewMyPalettes /> } 
+            />
+            <Route 
+              exact path="/view-fonts" 
+              element={ <ViewMyFonts /> } 
             />
             <Route 
               exact path="/edit-font-pair/:fontPairId" 

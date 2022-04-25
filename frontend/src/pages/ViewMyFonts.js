@@ -1,19 +1,10 @@
 import { useEffect, useState } from "react"
 import apiCalls from "../api/apiCalls"
 import ShowFontPair from "../components/ShowFontPair"
-import ShowPalette from "../components/ShowPalette"
 
-function ViewMyStyles({user}) {
+function ViewMyFonts({user}) {
 
-  const [palettes, setPalettes] = useState(null)
   const [fontPairs, setFontPairs] = useState(null)
-
-  const removePaletteFromView = (deletedPaletteId) => {
-    const updatedPalettes = palettes.filter((palette) => {
-      return palette.id !== deletedPaletteId
-    })
-    setPalettes(updatedPalettes)
-  }
 
   const removePairFromView = (deletedPairId) => {
     const updatedPairs = fontPairs.filter((pair) => {
@@ -22,20 +13,9 @@ function ViewMyStyles({user}) {
     setFontPairs(updatedPairs)
   }
 
-  const editNameInView = () => {
-    loadPalettes()
-  }
-
-
   useEffect(() => {
-    loadPalettes()
     loadFontPairs()
   }, [user])
-
-  const loadPalettes = async () => {
-    let data = await apiCalls.getAllColorPalettes()
-    setPalettes(data ? data : [])
-  }
 
   const loadFontPairs = async () => {
     let data = await apiCalls.getAllFontPairs()
@@ -45,13 +25,8 @@ function ViewMyStyles({user}) {
 
   return (
     <section className="section-column">
-      <h2>My Styles</h2>
+      <h2>My Font Pairs</h2>
       <div className="styles__container">
-        <div className="palettes__container" id="palettes">
-          {palettes && palettes.map((palette) => (
-            <ShowPalette key={palette.id} currentPalette={palette} removePaletteFromView={removePaletteFromView} editNameInView={editNameInView} />
-          ))}
-        </div>
         <div className="font-pairs__container" id="fonts">
           {fontPairs && fontPairs.map((pair, i) => (
             <ShowFontPair key={pair.id} currentPair={pair} removePairFromView={removePairFromView} />
@@ -62,4 +37,4 @@ function ViewMyStyles({user}) {
   )
 }
 
-export default ViewMyStyles
+export default ViewMyFonts

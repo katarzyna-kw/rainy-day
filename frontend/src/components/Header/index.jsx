@@ -2,8 +2,7 @@ import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import Navbar from '../Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { faX } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
 import logo from '../../assets/rainy-bw.png'
 
@@ -40,7 +39,7 @@ function Header({user, setUser}) {
         {isMobile && 
           <button className="toggler__container" aria-controls="navbarDropdown" onClick={handleToggle}>
             {navbarOpen 
-              ? <FontAwesomeIcon className="toggler bars" icon={faX} /> 
+              ? <FontAwesomeIcon className="toggler bars" icon={faXmark} /> 
               : <FontAwesomeIcon className="toggler x" icon={faBars} />
             }
           </button>

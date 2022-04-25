@@ -132,6 +132,10 @@
   overflow:hidden;
 }
 
+.hot-pink {
+  background-color: hotpink;
+}
+
 @media(min-width:768px) {
   .page__container {
     width: 90%;

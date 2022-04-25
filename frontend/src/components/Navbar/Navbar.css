@@ -16,9 +16,28 @@
   text-decoration: none;
 }
 
+.nav-link--item {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .navbar__link:hover,
 .navbar__link:active {
   color: var(--navlink-hover)
+}
+
+.embedded-links {
+  color: white;
+}
+
+.nav--button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav--icon {
+  color: #FFFFFF;
 }
 
 @media(min-width:768px) {

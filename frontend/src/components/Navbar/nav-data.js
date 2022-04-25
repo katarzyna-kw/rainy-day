@@ -21,7 +21,17 @@ export const navData = [
   },
   {
     "name": "View My Styles",
-    "url": "/view-styles",
+    // "url": null,
     "loggedin": true,
+    "links": [
+      {
+        "name": "Color Palettes",
+        "link": "/view-palettes"
+      },
+      {
+        "name": "Font Pairs",
+        "link": "/view-fonts"
+      }
+    ]
   },
 ]
