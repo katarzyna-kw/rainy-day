@@ -4,13 +4,13 @@ import Navbar from '../Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo3.png'
 
 function Header({user, setUser}) {
 
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
-  const isMobile = width < 700 ? true : false;
+  const isMobile = width < 768 ? true : false;
 
   useEffect (() => {
     const updateWindow = () => {

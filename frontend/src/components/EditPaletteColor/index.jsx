@@ -24,7 +24,7 @@ function EditPaletteColor({neutral, neutralSet, addNeutralToPalette, isSaved, se
       }
       {neutralError && <div className='feedback--edit'>
           <FontAwesomeIcon className="feedback-icon error icon--error-edit" icon={faExclamationTriangle} />
-          <p className='feedback__text'>Error saving palette. Try again.</p>
+          <p className='feedback__text feedback__text--error'>Error saving palette. Try again.</p>
         </div>
       }
     </div>

@@ -75,7 +75,7 @@ function EditFontPair() {
       <h2>Edit a Font Pair</h2>
       <GenerateFont fonts={serifFonts} font={font1} setFont={setFont1} initialFont={font1} />
       <GenerateFont fonts={sansSerifFonts} font={font2} setFont={setFont2} initialFont={font2} />
-      <button className='save-btn' onClick={handleEditFontPair}>Save Font Pair</button>
+      <button className='btn save-btn' onClick={handleEditFontPair}>Save Font Pair</button>
       <div className='feedback'>
         {feedback === 'Font Pair saved' 
           && <FontAwesomeIcon className="feedback-icon success" icon={faCheck} />

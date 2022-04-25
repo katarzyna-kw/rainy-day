@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { navData } from "./nav-data"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,6 +9,7 @@ import apiCalls from '../../api/apiCalls';
 
 function Navbar({user, setUser, handleToggle}) {
 
+  const menu = useRef(null)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const navigate = useNavigate()
 
@@ -23,6 +24,14 @@ function Navbar({user, setUser, handleToggle}) {
   const handleDropdown = () => {
     setDropdownOpen(prev => !prev)
   }
+
+  const closeOpenDropdown = (e) => {
+    if (menu.current && dropdownOpen && !menu.current.contains(e.target)) {
+      setDropdownOpen(false)
+    }
+  }
+
+  document.addEventListener('mousedown',closeOpenDropdown)
 
   return (
     <div className="navbar__container">
@@ -43,9 +52,9 @@ function Navbar({user, setUser, handleToggle}) {
                     {item.name}
                   </li>
                 </div>}
-                {item.name === "View My Styles" && <button className='nav--button' onClick={handleDropdown}><FontAwesomeIcon className="nav--icon" icon={faAngleDown} /></button>}
+                {(item.name === "View My Styles") && <button className='nav--button' onClick={() => setDropdownOpen((prev) => !prev)}><FontAwesomeIcon className="nav--icon" icon={faAngleDown} /></button>}
               </div>
-                {(item.links && dropdownOpen) && <div className='embedded-links'>
+                {(item.links && dropdownOpen) && <div className='embedded-links' ref={menu}>
                   {item.links.map((embedded, i) => (
                     <NavLink to={`${embedded.link}`} key={i} className='embedded' onClick={e => {handleToggle(e); handleDropdown(e)}} >
                     <div className='embedded-link'>

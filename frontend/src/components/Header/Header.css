@@ -1,5 +1,4 @@
 .header__container {
-  position: relative;
   width: 100%;
   background-color: var(--header-bg);
 }
@@ -7,9 +6,10 @@
 .header__head {
   width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 0;
 }
 
 .logo__container {
@@ -55,7 +55,7 @@
 @media(min-width:768px) {
 
   .header__container {
-    max-height: 54px;
+    max-height: 75px;
   }
 
   .header__head {
@@ -64,5 +64,5 @@
   
   .logo__container {
     padding-left: 1rem;
-  }  
+  }
 }

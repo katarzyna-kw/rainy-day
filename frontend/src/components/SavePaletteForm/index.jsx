@@ -33,7 +33,7 @@ function SavePaletteForm({currentPalette}) {
     <form className='form__container form__container--save' onSubmit={handleSavePalette} method="POST">
         <label className='screenreader-only'>Palette Name: </label>
         <input type="text" name="name" placeholder="Palette name" className='input'/>
-        <button className='save-btn' role='button'>
+        <button className='btn save-btn' role='button'>
           Save
         </button>
       <div className='feedback'>
@@ -43,7 +43,7 @@ function SavePaletteForm({currentPalette}) {
         {feedback === 'Palette was not saved. Try again.' 
           && <FontAwesomeIcon className="feedback-icon error" icon={faExclamationTriangle} />
         }
-        <p className='feedback__text'>{feedback}</p>
+        <p className='feedback__text feedback__text--error'>{feedback}</p>
       </div>
     </form>
   )

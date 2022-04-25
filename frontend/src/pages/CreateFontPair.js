@@ -58,7 +58,7 @@ function CreateFontPair() {
       <h2>Create a Font Pair</h2>
       <GenerateFont fonts={serifFonts} font={font1} setFont={setFont1} initialFont="Prata" num="1" />
       <GenerateFont fonts={sansSerifFonts} font={font2} setFont={setFont2} initialFont="Anybody" num="2" />
-      <button className='save-btn' onClick={handleSaveFontPair}>Save Font Pair</button>
+      <button className='btn save-btn' onClick={handleSaveFontPair}>Save Font Pair</button>
       <div className='feedback'>
         {feedback === 'Font Pair saved' 
           && <FontAwesomeIcon className="feedback-icon success" icon={faCheck} />

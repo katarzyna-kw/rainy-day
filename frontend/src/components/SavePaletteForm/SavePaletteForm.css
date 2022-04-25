@@ -16,6 +16,8 @@
   touch-action: manipulation;
   margin: 0 .2rem;
   border: 1px solid #111;
+  /* font-family: 'Montserrat', sans-serif; */
+
 }
 
 .save-btn:hover,
@@ -23,27 +25,4 @@
   background-color: #E5E4E7;
   color: #111;
   border: 1px solid #111;
-}
-
-.feedback {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.feedback__text {
-  text-align: center;
-}
-
-.feedback-icon {
-  margin: 0 .5rem;
-}
-
-.error {
-  color: var(--bright);
-}
-
-.success {
-  color: var(--success);
 }

@@ -91,11 +91,11 @@ function UpdateColor({baseColor, setBaseColor}) {
   return (
     <div className="create__container">
       <div className='colorpicker__container'>
-        <h4>Pick a base color:</h4>
+        <h3>Pick a base color:</h3>
         <ColorPicker className="color-picker" width={colorPickerSize} height={200} color={color} onChange={e => {setColor(e); showContrastingPalette(e) }} hideRGB light />
       </div>
       <div className='palettes__container'>
-        <h4>Generate a palette:</h4>
+        <h3>Generate a palette:</h3>
         <div className="btn__container">
 
           <button 

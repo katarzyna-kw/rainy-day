@@ -9,6 +9,7 @@
 
 .palette__header {
   margin-bottom: 0;
+  color: #000000;
 }
 
 .palette-options--container {
@@ -79,12 +80,6 @@
 
 .icon--error-edit {
   margin-top: -.2rem;
-}
-
-.feedback__text {
-  padding: 0;
-  margin: 0;
-  font-size: .8rem;
 }
 
 .input__container--edit {

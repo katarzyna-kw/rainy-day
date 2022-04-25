@@ -19,13 +19,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'palm_springsgraphic', sans-serif;
 }
 
 .palette-color__text {
   background-color: white;
   border-radius: 10px;
-  padding: .2rem .4rem .1rem .4rem;
-  opacity: 0.70;
+  padding: 0rem .4rem .1rem .4rem;
+  opacity: 0.7;
 }
 
 @media(min-width: 768px) {
