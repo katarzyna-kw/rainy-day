@@ -45,13 +45,15 @@ function Navbar({user, setUser, handleToggle}) {
                 </div>}
                 {item.name === "View My Styles" && <button className='nav--button' onClick={handleDropdown}><FontAwesomeIcon className="nav--icon" icon={faAngleDown} /></button>}
               </div>
-              {(item.links && dropdownOpen) && item.links.map((embedded, i) => (
-                <NavLink to={`${embedded.link}`} key={i} className='embedded-links' onClick={e => {handleToggle(e); handleDropdown(e)}} >
-                  <div className='embedded-links'>
-                    {embedded.name}
-                  </div>
-                </NavLink>
-              ))}
+                {(item.links && dropdownOpen) && <div className='embedded-links'>
+                  {item.links.map((embedded, i) => (
+                    <NavLink to={`${embedded.link}`} key={i} className='embedded' onClick={e => {handleToggle(e); handleDropdown(e)}} >
+                    <div className='embedded-link'>
+                      {embedded.name}
+                    </div>
+                  </NavLink>
+                  ))}
+                </div>}
             </div>
             ) : null;
           })}

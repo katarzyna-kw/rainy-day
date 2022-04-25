@@ -27,7 +27,22 @@
 }
 
 .embedded-links {
-  color: white;
+  margin-top: .5rem;
+  padding: .5rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.embedded {
+  text-align: center;
+  text-decoration: none;
+  color: var(--success);
+}
+
+.embedded:hover,
+.embedded:active {
+  color: var(--bright);
 }
 
 .nav--button {
@@ -50,6 +65,7 @@
   .navbar__list {
     flex-flow: row wrap;
     justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
     
   }  

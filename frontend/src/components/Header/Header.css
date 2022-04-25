@@ -53,6 +53,15 @@
 }
 
 @media(min-width:768px) {
+
+  .header__container {
+    max-height: 54px;
+  }
+
+  .header__head {
+    align-items: flex-start;
+  }
+  
   .logo__container {
     padding-left: 1rem;
   }  
