@@ -66,7 +66,7 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
 
   return (
     <div className="show-palette__container">
-      <h2 className="palette__header">{currentPalette.name}</h2>
+      <h3 className="palette__header">{currentPalette.name}</h3>
       <div className="palette-options--container">
         <EditPaletteName currentPalette={currentPalette} renaming={renaming} setRenaming={setRenaming} editNameInView={editNameInView} />
         <DeletePalette currentPalette={currentPalette} removePaletteFromView={removePaletteFromView} />

@@ -1,3 +1,7 @@
+.input {
+  border: 1px solid #000000;
+}
+
 .form__container--save {
   margin-top: 20px;
 }

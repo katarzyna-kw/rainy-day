@@ -38,7 +38,7 @@
 }
 
 .show-font__container {
-  background-color: orchid;
+  background-color: var(--accent);
 }
 
 .display--colors {

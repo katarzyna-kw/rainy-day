@@ -32,7 +32,7 @@ function SavePaletteForm({currentPalette}) {
   return (
     <form className='form__container form__container--save' onSubmit={handleSavePalette} method="POST">
         <label className='screenreader-only'>Palette Name: </label>
-        <input type="text" name="name" placeholder="Enter palette name" />
+        <input type="text" name="name" placeholder="Palette name" className='input'/>
         <button className='save-btn' role='button'>
           Save
         </button>

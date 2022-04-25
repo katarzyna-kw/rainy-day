@@ -1,0 +1,14 @@
+.view-font-pair__container {
+  width: 95%;
+  margin-bottom: 30px;
+}
+
+.view-font-pair__container h3 {
+  text-align: center;
+}
+
+@media(min-width: 768px) {
+  .view-font-pair__container {
+    width: 60%;
+  }  
+}

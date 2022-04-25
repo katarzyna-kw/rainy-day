@@ -45,7 +45,7 @@ function EditPaletteName({currentPalette, renaming, setRenaming, editNameInView}
       <div className='form__container form__container--edit'>
         <div className="fields__container">
           <form className="input__container--edit" onSubmit={editName} method="PATCH" >
-            <input type="text" name="new_name" />
+            <input type="text" name="new_name" className='input'/>
             <button className="btn sml ok">
               <FontAwesomeIcon className="" icon={faCheck} />
             </button>

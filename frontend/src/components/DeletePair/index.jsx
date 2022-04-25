@@ -13,7 +13,9 @@ function DeletePair({currentPair, removePairFromView}) {
   }
 
   return (
-    <button onClick={handleDeletePair}>Delete {currentPair.font1}/{currentPair.font2}</button>
+    <button onClick={handleDeletePair} className="btn delete">
+      Delete {currentPair.font1}/{currentPair.font2}
+    </button>
   )
 }
 
