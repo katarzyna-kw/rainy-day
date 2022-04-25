@@ -9,7 +9,7 @@ function ShowFontPair({currentPair, removePairFromView}) {
 
   return (
     <div className="view-font-pair__container">
-      <h3>{currentPair.font1}/{currentPair.font2}</h3>
+      <h3 className='view-font-pair__heading'>{currentPair.font1}/{currentPair.font2}</h3>
       {currentPair.fonts.map((font, i) => (
         <FontOutput key={i} font={font} removePairFromView={removePairFromView} />
       ))}

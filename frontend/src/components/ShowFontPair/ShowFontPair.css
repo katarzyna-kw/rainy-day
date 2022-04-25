@@ -3,8 +3,10 @@
   margin-bottom: 30px;
 }
 
-.view-font-pair__container h3 {
-  text-align: center;
+.view-font-pair__heading {
+  padding: 0;
+  margin: 1rem;
+  color: #000000;
 }
 
 @media(min-width: 768px) {
