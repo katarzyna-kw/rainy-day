@@ -66,7 +66,7 @@ function SignUp() {
           </div>
           <div className='form-item'>
             <label className='screenreader-only'>Password: </label>
-            <input className={(validEmailError) ? 'input--user input--error' : 'input--user'} type="text" name="password" placeholder="Password" />
+            <input className={(validEmailError) ? 'input--user input--error' : 'input--user'} type="password" name="password" placeholder="Password" />
             {passwordError && <p className='user-input__error'>Password cannot be blank.</p>}
           </div>
         </div>

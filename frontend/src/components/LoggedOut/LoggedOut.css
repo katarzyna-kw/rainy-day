@@ -107,6 +107,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 1rem 1rem;
   }
 
   .demo__text--container {
@@ -155,6 +156,7 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    padding: 2rem 1rem;
   }
 
   .demo__text--container {

@@ -53,7 +53,7 @@ function LogIn({setUser, user}) {
           </div>
           <div className='form-item'>
           <label className='screenreader-only'>Password: </label>
-          <input className={passwordError ? 'input--user input--error' : 'input--user'} type="text" name="password" placeholder="Enter password" />
+          <input className={passwordError ? 'input--user input--error' : 'input--user'} type="password" name="password" placeholder="Enter password" />
           {passwordError && <p className='user-input__error'>Must enter password</p>}
         </div>
       </div>
