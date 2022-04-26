@@ -2,6 +2,8 @@ import {useState} from 'react'
 import { useNavigate } from "react-router-dom"
 import apiCalls from "../api/apiCalls"
 import {validate} from 'react-email-validator'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 
 function LogIn({setUser, user}) {
 
@@ -31,7 +33,6 @@ function LogIn({setUser, user}) {
       const data = await apiCalls.login(loginData)
     
       if (data) {
-        // console.log("data", data)
         setUser(data)
         localStorage.setItem("user", JSON.stringify(data))
         navigate("/")
@@ -61,7 +62,11 @@ function LogIn({setUser, user}) {
         Login
       </button>
     </form>
-    {loginError && <p>Username and password do not match.</p>}
+    {loginError && 
+    <div className="feedback">
+      <FontAwesomeIcon className="feedback-icon error icon--error-edit" icon={faExclamationTriangle} />
+      <p className='feedback__text'>Username and password do not match.</p>
+    </div>}
     </section>
   )
 }

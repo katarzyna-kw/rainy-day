@@ -2,6 +2,8 @@ import {useState} from 'react'
 import { useNavigate } from "react-router-dom"
 import apiCalls from "../api/apiCalls"
 import {validate} from 'react-email-validator'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 
 function SignUp() {
 
@@ -75,7 +77,12 @@ function SignUp() {
           Sign Up
         </button>
       </form> 
-      {error && <p>Try to log in to see if user already exists.</p>}
+      {error && 
+        <div className="feedback">
+          <FontAwesomeIcon className="feedback-icon error icon--error-edit" icon={faExclamationTriangle} />
+          <p className='feedback__text'>Try to log in to see if user already exists.</p>
+        </div>
+      }
     </section>
   )
 }
