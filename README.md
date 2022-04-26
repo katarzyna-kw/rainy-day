@@ -30,60 +30,142 @@ Store your styling ideas for upcoming projects (or a "rainy day" when you're out
 
 ## Steps to run project locally
 
-1. Create virtual environment in backend directory:
+1. Clone the repository:
 
-```$ python -m venv .venv```
+```sh
+$ git clone https://github.com/katarzyna-kw/rainy-day.git
+$ cd rainy-day
+```
+___
 
----
-2. Activate virtual environment:
+2. Check whether python 3 is installed locally:
 
-```$ source .venv/bin/activate```
+```sh
+$ python -V
+```
 
----
+If the version is Python 3.7.3 or higher, you may proceed to step 3A. 
 
-3. Install packages:
+Else, try running the following command: 
 
-```$ pip install -r requirements.txt```
+
+```sh
+$ python3 -V
+```
+
+If the version shown is Python 3.7.3 or higher, you may proceed to step 3B. 
+
+If Python 3.7.3 or higher is not installed, please visit python.org to download the latest version - [python.org/downloads](https://www.python.org/downloads/). Once the download is complete, follow step 2 from the beginning to determine whether to use python or python3 in your command line.
+
+___
+
+3A. Create virtual environment to install dependencies:
+
+```sh
+$ cd backend
+$ python -m venv .venv
+```
+
+3B. Create virtual environment to install dependencies:
+
+```sh
+$ cd backend
+$ python3 -m venv .venv
+```
+___
+
+4. Activate virtual environment:
+
+```sh
+$ source .venv/bin/activate
+```
+
+___
+
+
+5. Install dependencies:
+
+```sh
+$ (.venv) pip install -r requirements.txt
+```
+
+Note the (.venv) in front of the prompt. This indicates that this terminal session operates in a virtural environment.
 
 If that command results in an error, try:
 
-```$ pip install --upgrade -r requirements.txt```
-
----
-
-3. Create PostgreSQL database:
-
-```$ createdb styles_db```
-
----
-
-4. Run migrations
-
-```$ python manage.py migrate```
-
----
-5. Run the server:
-
-```$ python manage.py runserver```
-___
-
-7. In frontend directory, run:
-
-```$ npm install```
+```sh
+$ (.venv) pip install --upgrade -r requirements.txt
+```
 
 ___
 
-8. In frontend directory, run:
+6. Create PostgreSQL database:
 
-```$ npm start```
+```sh
+$ (.venv) createdb styles_db
+```
 
 ___
 
-9. The previous command should start and open server, but it does not, view the site in browser with the following link: 
+7. Set up environmental variable secret key for Django secret key:
+
+Create a django secret key using this generator: [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
+
+Copy secret key created by Django Secret Key Generator.
+
+In command line, create .env file and place secret key inside:
+
+```sh
+$ (.venv) touch .env
+$ (.venv) echo SECRET_KEY = 'insert secret key obtained from generator' > .env
+```
+
+___
+
+8. Set up environmental variable secret key for Google Web Fonts Developer API key:
+
+Obtain Google Web Fonts Developer API key: [Google Fonts Developer API](https://developers.google.com/fonts/docs/developer_api#APIKey)
+
+Copy Google Web Fonts API Key.
+
+In command line, place Google Web Fonts API Key inside .env file:
+
+```sh
+$ (.venv) echo FONT_KEY = 'insert API key obtained from Google Web Fonts' > .env
+```
+
+___
+
+9. Run migrations:
+
+```sh
+$ python manage.py migrate
+```
+
+---
+
+10. Run the server:
+
+```sh
+$ (.venv) python manage.py runserver
+```
+___
+
+11. Run the frontend:
+
+```sh
+(.venv) $ cd ..
+(.venv) $ cd frontend
+(.venv) $ npm install 
+(.venv) $ npm start
+```
+
+The previous command should start and open server, but it does not, view the site in browser with the following link: 
 
 [http://localhost:3000/](http://localhost:3000/)
 
 
+___
 ## Author
 
 - Portfolio - [Katarzyna Wegrzynowicz](https://katarzyna-kw.github.io/portfolio-website/)
