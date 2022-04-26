@@ -15,6 +15,5 @@ urlpatterns = [
     path("", include(router.urls)),
     path("login/", handle_login),
     path("logout/", handle_logout),
-    # path("test/", call_api),
-    # path("get-user/", current_user)
+    # path("get-fonts/", call_api),
 ]

@@ -25,7 +25,7 @@ def handle_login(request):
             if user:
                 login(request, user)
                 # not passing id for safety -- need to add perform_create to tasklist in serializers since not using id
-                return JsonResponse({ "username": user.email, "first_name": user.first_name, "token": get_token(request), "success": True }, status=200)
+                return JsonResponse({ "username": user.email, "first_name": user.first_name, "success": True }, status=200)
     
     except Exception as e:
         return error_on_request(str(e))
