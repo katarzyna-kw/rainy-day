@@ -48,7 +48,6 @@
 .hp-info__palettes,
 .hp-info__font-pairs {
   width: 100%;
-  /* background-color: orchid; */
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -265,17 +264,37 @@ h1 {
   .hp-info__container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
-    /* background-color: aqua; */
+  }
+
+  .hp-info__font-pairs,
+  .hp-info__palettes {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    margin-top: 1rem;
   }
 
   .hp-info__palettes {
-    width: 50%;
+    width: 46%;
+    margin-right: 1rem;
   }
 
   .hp-info__font-pairs {
-    width: 50%;
+    width: 45%;
+  }
+
+  .how-to {
+    overflow: hidden;
+  }
+
+  .how-to__img {
+    width: 100%;
+  }
+
+  .palette_img {
+    width: 140%;
   }
 
   .form--user-info {
