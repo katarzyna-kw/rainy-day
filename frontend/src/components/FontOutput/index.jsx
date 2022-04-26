@@ -18,7 +18,7 @@ function FontOutput({font, bgColor, fontColor}) {
     <h3 style={{fontFamily: `${font}`, color: `${fontColor}`}}>
       The brown dog jumped over the gray fox.
     </h3>
-    <h3 style={{fontFamily: `${font}`, color: `${fontColor}`}}>THE BROWN DOG JUMPED OVER THE GRAY FOX.</h3>
+    {/* <h3 style={{fontFamily: `${font}`, color: `${fontColor}`}}>THE BROWN DOG JUMPED OVER THE GRAY FOX.</h3> */}
     </div>
     )
 }

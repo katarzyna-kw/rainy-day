@@ -1,0 +1,14 @@
+.mini-palette__container {
+  width: 90%;
+  border: none;
+}
+
+.mini-palette__header {
+  color: var(--accent-text);
+  margin-top: 0;
+}
+
+.mini-palette__container--view {
+  margin: 1rem 1rem 2rem 1rem;
+  border: 0px;
+}

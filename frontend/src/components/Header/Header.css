@@ -29,9 +29,14 @@
 }
 
 .logo-img {
-  width: 300px;
+  max-width: 300px;
   height: auto;
   margin-top: .3rem;
+}
+
+.logo-sml {
+  width: 100px;
+  height: auto;
 }
 
 .toggler__container {

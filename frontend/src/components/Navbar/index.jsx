@@ -39,7 +39,7 @@ function Navbar({user, setUser, handleToggle}) {
 
         {user && navData.map((item, i) => {
           return item.loggedin ? (
-            <div className='nav-link__container'>
+            <div className='nav-link__container' key={i}>
               <div className='nav-link--item'>
                 {item.url && <NavLink to={`${item.url}`} key={i} className="navbar__link" onClick={handleToggle}>
                   <li className="navbar__list-item">

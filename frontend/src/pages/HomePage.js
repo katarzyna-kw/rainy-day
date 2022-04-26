@@ -1,8 +1,14 @@
+import LoggedIn from '../components/LoggedIn'
+import LoggedOut from "../components/LoggedOut"
+
 function HomePage({user}) {
 
   return (
     <section className="section-column">
-      {user === null  ? <h1>Welcome!</h1> : <h1>Welcome, {user.first_name}! </h1>}
+      {user && <h1 className="hp--welcome">Welcome, {user.first_name}! </h1>}
+      {!user && <LoggedOut />}
+      {user && <LoggedIn user={user} />
+      }
     </section>
   )
 }

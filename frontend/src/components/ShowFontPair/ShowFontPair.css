@@ -1,6 +1,10 @@
 .view-font-pair__container {
   width: 95%;
   margin-bottom: 30px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .view-font-pair__heading {

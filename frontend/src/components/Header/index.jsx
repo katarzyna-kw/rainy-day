@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
 import logo from '../../assets/logo3.png'
+import logosml from '../../assets/logo-fold.png'
 
 function Header({user, setUser}) {
 
@@ -32,7 +33,10 @@ function Header({user, setUser}) {
       <div className="header__head">
         <div className="logo__container">
           <Link to="/" className="logo">
-            <img className="logo-img" src={logo} />
+            <picture>
+              <source className="logo-sml" media="(max-width: 350px)" srcSet={logosml} />
+              <img className="logo-img" src={logo} alt="Saved for a Rainy Day logo" />
+            </picture>
           </Link>
         </div>
         {isMobile && 
