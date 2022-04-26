@@ -7,7 +7,7 @@ function MiniPaletteView({user, currentPalette}) {
       {currentPalette && <div className='palette__container--view mini-palette__container--view'>
         {currentPalette.colors.map((color, i) => 
           color && (
-          <div key={i} style={{backgroundColor: `${color}`}}className='palette-color'>
+          <div key={i} style={{backgroundColor: `${color}`}}className='palette-color' id="mini-palette-color">
             <p className="palette-color__text">
               {color}
             </p>

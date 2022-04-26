@@ -4,7 +4,6 @@
   margin: auto;
   box-sizing: border-box;
   background-color: var(--bg);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,11 +27,12 @@
 }
 
 .hp--welcome {
+  margin-top: .5rem;
   margin-bottom: 0;
 }
 
 .hp--subhead {
-  margin: 1rem 0;
+  margin: .5rem 0;
   color: var(--base-text);
   font-family: 'Montserrat', sans-serif;
 }

@@ -3,13 +3,12 @@ import apiHelpers from "./apiHelpers"
 
 const apiGenerateFonts = {}
 
-const fontEndpoint=process.env.REACT_APP_FONT_ENDPOINT
-const fontKey=process.env.REACT_APP_API_KEY
+const BASE_URL = "http://localhost:8000"
 
 apiGenerateFonts.generateAllFonts = async () => {
 
   const data = await apiHelpers.tryCatchFetch(
-    () => axios.get(`${fontEndpoint}${fontKey}&sort=popularity`)
+    () => axios.get(`${BASE_URL}/get-fonts`, apiHelpers.getCsrfConfig())
   )
   let updatedData = []
   if (data.items.length >= 200) {
@@ -19,5 +18,6 @@ apiGenerateFonts.generateAllFonts = async () => {
   }
   return updatedData
 }
+
 
 export default apiGenerateFonts
