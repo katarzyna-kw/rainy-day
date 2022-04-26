@@ -6,6 +6,7 @@ footer {
   padding: .5rem;
   text-align: center;
   font-size: .8rem;
+  font-weight: 700;
 }
 
 footer a {
@@ -16,6 +17,6 @@ footer a {
 }
 
 footer a:hover {
-  color: var(--bright);
+  color: var(--success);
 }
 
