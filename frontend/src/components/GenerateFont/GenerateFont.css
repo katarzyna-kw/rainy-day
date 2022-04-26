@@ -72,11 +72,29 @@
 }
 
 @media(min-width: 768px) {
+
+  .generate-font__container {
+    width: 80%;
+  }
+    
   .display__container {
-    width: 60%;
+    width: 80%;
   }
 
   .show-font__container {
-    width: 100%;
-  }  
+    max-width: 100%;
+    min-width: 70%;
+  } 
+}
+
+@media(min-width: 1200px) {
+  .generate-font__container {
+    width: 60%;
+  }
+}
+
+@media(min-width: 1600px) {
+  .generate-font__container {
+    width: 50%;
+  }
 }
