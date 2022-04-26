@@ -72,6 +72,10 @@
   display: none;
 }
 
+.mobile--text {
+  text-align: left;
+}
+
 @media(min-width: 550px) {
 
   .demo__text--container {

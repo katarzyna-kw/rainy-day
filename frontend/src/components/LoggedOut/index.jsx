@@ -20,7 +20,7 @@ function LoggedOut() {
       <img className="demo--gif gif-fonts" src={createPair} />
     </div>
     <div className="demo__text--container mobile">
-      <h2 className="demo__text para2"><span>Create</span> and <span>save</span> unlimited color palettes and <span>unlimited</span> Google font pairings in one <span>convenient</span> space for <span>free</span></h2>
+      <h2 className="demo__text para2 mobile--text"><span>Create</span> and <span>save</span> unlimited color palettes and <span>unlimited</span> Google font pairings in one <span>convenient</span> space for <span>free</span></h2>
     </div>
     <Link className="mobile" to="/signup">
       <button className='btn btn-landing'>Sign up today!</button>
