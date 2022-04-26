@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom'
 import DeletePair from '../DeletePair'
 import FontOutput from '../FontOutput'
-import CopyFontPair from '../CopyFontPair'
 import './ShowFontPair.css'
 
 function ShowFontPair({currentPair, removePairFromView}) {
