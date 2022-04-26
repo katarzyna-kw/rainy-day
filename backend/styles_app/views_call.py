@@ -10,7 +10,7 @@ def call_api(request):
     url = f'https://www.googleapis.com/webfonts/v1/webfonts?key={API_KEY}&sort=popularity'
     header = {
         "Content-Type":"application/json",
-        "X-Client_Secret": "AIzaSyCdxWKZ06-ZchV5wIVQnnSRJxp1eMynfrc"
+        "X-Client_Secret": str(os.getenv('FONT_KEY'))
     }
     response = requests.get(url, headers=header)
     json_response = response.json()
