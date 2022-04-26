@@ -5,12 +5,23 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1rem 0;
 }
 
 .view-font-pair__heading {
   padding: 0;
   margin: 1rem;
   color: #000000;
+}
+
+.btns__container {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 }
 
 @media(min-width: 768px) {

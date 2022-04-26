@@ -82,12 +82,37 @@
   text-transform: uppercase;
 }
 
+.btn--external-links,
+.btn--internal-links
+ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+}
+
+
 .btn:hover,
 .btn:active {
   background-color: #fff;
   color: #111;
   border: 1px solid #111;
 }
+
+.btn--tertiary {
+  background-color: transparent;
+  color: var(--success);
+  border: 0;
+  margin-bottom: 1rem;
+}
+
+.btn--tertiary:hover {
+  background-color: transparent;
+  color: var(--accent-text);
+  border: 0;
+  text-decoration: underline;
+}
+
 
 input, select {
   font-family: 'Montserrat', sans-serif;
