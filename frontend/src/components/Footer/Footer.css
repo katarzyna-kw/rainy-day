@@ -1,10 +1,21 @@
 footer {
   width: 100%;
   margin-top: 1.5rem;
-  /* background-color: var(--accent); */
-  border-top: 1px solid var(--bright);
-  color: #000;
+  background-color: var(--base-text);
+  color: var(--plain);
   padding: .5rem;
   text-align: center;
   font-size: .8rem;
 }
+
+footer a {
+  color: var(--bright--light);
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-left: .5rem;
+}
+
+footer a:hover {
+  color: var(--bright);
+}
+
