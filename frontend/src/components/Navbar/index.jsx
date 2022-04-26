@@ -17,6 +17,7 @@ function Navbar({user, setUser, handleToggle}) {
     const data = await apiCalls.logout()
     if (data) {
       setUser(null)
+      localStorage.clear();
       navigate("/")
     }
   }
