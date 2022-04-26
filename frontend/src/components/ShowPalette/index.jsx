@@ -4,6 +4,7 @@ import apiGeneratePalettes from '../../api/apiGeneratePalettes'
 import EditPaletteColor from '../EditPaletteColor'
 import DeletePalette from '../DeletePalette'
 import EditPaletteName from '../EditPaletteName'
+import CopyPalette from '../CopyPalette'
 import './ShowPalette.css'
 
 function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
@@ -70,6 +71,7 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
       <div className="palette-options--container">
         <EditPaletteName currentPalette={currentPalette} renaming={renaming} setRenaming={setRenaming} editNameInView={editNameInView} />
         <DeletePalette currentPalette={currentPalette} removePaletteFromView={removePaletteFromView} />
+        <CopyPalette currentPalette={currentPalette} />
       </div>
       <div className='palette__container--view'>
         {currentPalette.colors.map((color, i) => 

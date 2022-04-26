@@ -25,7 +25,7 @@ function ShowFontPair({currentPair, removePairFromView}) {
           </a>
         </div>
         <div className='btn--internal-links'>
-          <Link to={`/edit-font-pair/${currentPair.id}`} state={currentPair}>
+          <Link to={`/edit-font-pair/${currentPair.id}`} >
             <button className='btn rename'>Edit</button>
           </Link>
           <DeletePair currentPair={currentPair} removePairFromView={removePairFromView} />
