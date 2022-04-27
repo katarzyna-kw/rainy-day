@@ -27,6 +27,8 @@ Store your styling ideas for upcoming projects (or a "rainy day" when you're out
 * [Google Fonts API for Developers](https://developers.google.com/fonts/docs/developer_api)
 * [Web Font Loader](https://www.npmjs.com/package/webfontloader)
 * [React-Color-Palette](https://www.npmjs.com/package/react-color-palette)
+* [Font Awesome](https://fontawesome.com/v5/docs/web/use-with/react)
+* [Material_UI Switch](https://mui.com/material-ui/react-switch/)
 
 ## Steps to run project locally
 
