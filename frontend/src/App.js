@@ -15,6 +15,7 @@ import './App.css';
 function App() {
 
   const [user, setUser ] = useState(null)
+  const [theme, setTheme] = useState('light')
 
   useEffect(() => {
     const loggedIn = localStorage.getItem("user")
@@ -25,9 +26,9 @@ function App() {
   }, [])
 
   return (
-    <main className="App dark" data-testid="app">
+    <main className={`App ${theme}`} data-testid="app">
       <HashRouter>
-        <Header user={user} setUser={setUser}/>
+        <Header user={user} setUser={setUser} setTheme={setTheme} />
         <div className="page__container">
           <Routes>
             <Route 

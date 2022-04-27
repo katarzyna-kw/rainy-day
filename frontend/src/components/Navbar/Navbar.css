@@ -57,6 +57,19 @@
   color: #FFFFFF;
 }
 
+.loggedin-nav__container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theme-toggle {
+  background-color: var(--toggle-bg);
+  border-radius: 50px;
+  padding: .5rem;
+}
+
 @media(min-width:768px) {
 
   .navbar__container {
@@ -95,5 +108,9 @@
     background-color: var(--dropdown-hover-bg);
     color: var(--base-text);
   } 
+
+  .theme-toggle {
+    margin-left: 1rem;
+  }  
 
 }

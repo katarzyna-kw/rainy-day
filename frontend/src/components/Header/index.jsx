@@ -7,7 +7,7 @@ import './Header.css'
 import logo from '../../assets/logo3.png'
 import logosml from '../../assets/logo-fold.png'
 
-function Header({user, setUser}) {
+function Header({user, setUser, setTheme}) {
 
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [width, setWidth] = useState(window.innerWidth)
@@ -47,9 +47,10 @@ function Header({user, setUser}) {
             }
           </button>
         }
-        {!isMobile && <Navbar mobile={isMobile} user={user} setUser={setUser} handleToggle={handleToggle}/> }
+        {!isMobile && <Navbar mobile={isMobile} user={user} setUser={setUser} handleToggle={handleToggle} setTheme={setTheme} /> }
       </div>
-      {navbarOpen && isMobile && <Navbar user={user} setUser={setUser} handleToggle={handleToggle}/> }
+      {navbarOpen && isMobile && <Navbar user={user} setUser={setUser} handleToggle={handleToggle} setTheme={setTheme}/> }
+
     </div>
   )
 }

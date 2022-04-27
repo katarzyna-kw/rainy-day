@@ -6,11 +6,14 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import '../../App.css'
 import './Navbar.css'
 import apiCalls from '../../api/apiCalls';
+import { Switch } from "@mui/material";
 
-function Navbar({user, setUser, handleToggle}) {
+
+function Navbar({user, setUser, handleToggle, setTheme}) {
 
   const menu = useRef(null)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [checked, setChecked] = useState(false);
   const navigate = useNavigate()
 
   const handleLogout = async () => {
@@ -30,6 +33,14 @@ function Navbar({user, setUser, handleToggle}) {
     if (menu.current && dropdownOpen && !menu.current.contains(e.target)) {
       setDropdownOpen(false)
     }
+  }
+
+  const handleTheme = (e) => {
+    setChecked(e.target.checked);
+  }
+
+  const onModeToggle = () => {
+    setTheme((theme) => (theme === "light" ? "dark" : "light"));
   }
 
   document.addEventListener('mousedown',closeOpenDropdown)
@@ -79,10 +90,20 @@ function Navbar({user, setUser, handleToggle}) {
           })}
 
         {user && 
-        <NavLink to="#" className="navbar__link" onClick={handleLogout}>
-          <li className="navbar__list-item">Logout</li>
-        </NavLink>
+        <div className='loggedin-nav__container'>
+          <NavLink to="#" className="navbar__link" onClick={handleLogout}>
+            <li className="navbar__list-item">Logout</li>
+          </NavLink>
+        </div>
         }
+                  <Switch
+            color='default'
+            size="small"
+            checked={checked}
+            onChange={handleTheme}
+            onClick={onModeToggle}
+            className="theme-toggle"
+          />
       </ul>
     </div>
   )
