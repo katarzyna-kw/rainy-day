@@ -38,8 +38,12 @@
   max-width: 500px;
 }
 
+.show-font__container h3 {
+  color: var(--black);
+}
+
 .show-font__container {
-  background-color: var(--accent);
+  background-color: var(--fp-container);
 }
 
 .display--colors {
@@ -64,7 +68,7 @@
 }
 
 .gray {
-  color: var(--accent);
+  color: var(--gray);
 }
 
 .black {

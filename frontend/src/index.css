@@ -11,6 +11,7 @@
   --navlink: #E6EBFF;
   --navlink-hover: #f1e766;
   --dropdown-link: #7994ff;
+  --dropdown-hover-bg: #F2F2F1;
   --accent: #F2F2F1;
   --rename: rgb(74, 73, 73);
   --bright: #ff304c;
@@ -26,6 +27,14 @@
   --input-bg: #FFF;
   --palette-hover: #FFF;
   --palette-text: #000;
+  --palette-head: #000;
+  --btn-remove--text: #FFF;
+  --btn-delete--text: #000;
+  --btn-delete--bg: rgb(74, 73, 73);
+  --fp-border: #000;
+  --fp-container: #F2F2F1;
+  --black: #000;
+  --gray: #F2F2F1;
 }
 
 .dark {
@@ -37,6 +46,7 @@
   --navlink: #E6EBFF;
   --navlink-hover: #f1e766;
   --dropdown-link: #7994ff;
+  --dropdown-hover-bg: rgb(74, 73, 73);
   --accent: rgb(70, 73, 73);
   --rename: rgb(74, 73, 73);
   --bright: #ff304c;
@@ -52,6 +62,14 @@
   --input-bg: #131212;
   --palette-hover: #F2F2F1;
   --palette-text: #000;
+  --palette-head: #FFF;
+  --btn-remove--text: #F2F2F1;
+  --btn-delete--text: #FFF;
+  --btn-delete--bg: transparent;
+  --fp-border: rgb(74, 73, 73);
+  --fp-container: #F2F2F1;
+  --black: #000;
+  --gray: #F2F2F1;
 }
 
 body {

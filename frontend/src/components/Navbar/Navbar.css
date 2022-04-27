@@ -92,8 +92,8 @@
   }
 
   .embedded-link:hover {
-    background-color: var(--accent-text);
-    color: var(--bg);
+    background-color: var(--dropdown-hover-bg);
+    color: var(--base-text);
   } 
 
 }

@@ -25,7 +25,7 @@ function App() {
   }, [])
 
   return (
-    <main className="App light" data-testid="app">
+    <main className="App dark" data-testid="app">
       <HashRouter>
         <Header user={user} setUser={setUser}/>
         <div className="page__container">

@@ -29,7 +29,7 @@ function ViewMyPalettes({user}) {
 
   return (
     <section className="section-column">
-      <h2>My Color Palettes</h2>
+      <h2>My Color Palettes </h2>
       <div className="styles__container">
         <div className="palettes__container">
           {palettes && palettes.map((palette) => (

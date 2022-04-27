@@ -9,7 +9,7 @@
 
 .palette__header {
   margin-bottom: 0;
-  color: #000000;
+  color: var(--palette-head);
 }
 
 .palette-options--container {
@@ -21,14 +21,15 @@
 }
 
 .delete {
-  background-color: var(--accent);
-  color: #000000;
+  color: var(--btn-delete--text);
+  background-color: var(--btn-delete__bg);
+  border: 1px solid var(--base-text);
 }
 
 .rename,
 .add {
   background-color: var(--rename);
-  color: #FFFFFF;
+  color: var(--btn-remove--text);
   border: 1px solid var(--rename);
 }
 
