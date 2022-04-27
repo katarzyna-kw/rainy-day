@@ -23,11 +23,6 @@
   cursor: pointer;
 }
 
-.logo:hover, 
-.logo:active {
-  color: var(--logo-hover);
-}
-
 .logo-img {
   max-width: 300px;
   height: auto;

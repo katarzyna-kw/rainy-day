@@ -1,7 +1,7 @@
 footer {
   width: 100%;
   margin-top: 1.5rem;
-  background-color: var(--base-text);
+  background-color: var(--footer-bg);
   color: var(--plain);
   padding: .5rem;
   text-align: center;
@@ -10,13 +10,13 @@ footer {
 }
 
 footer a {
-  color: var(--bright--light);
+  color: var(--footer-text);
   text-decoration: none;
   text-transform: uppercase;
   padding-left: .5rem;
 }
 
 footer a:hover {
-  color: var(--success);
+  color: var(--footer-text--hover);
 }
 

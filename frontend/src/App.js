@@ -7,7 +7,6 @@ import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
 import CreateColorPalette from './pages/CreateColorPalette'
 import CreateFontPair from './pages/CreateFontPair'
-import ViewMyStyles from './pages/ViewMyStyles'
 import ViewMyPalettes from './pages/ViewMyPalettes'
 import ViewMyFonts from './pages/ViewMyFonts'
 import EditFontPair from './pages/EditFontPair'
@@ -26,7 +25,7 @@ function App() {
   }, [])
 
   return (
-    <main className="App light">
+    <main className="App light" data-testid="app">
       <HashRouter>
         <Header user={user} setUser={setUser}/>
         <div className="page__container">

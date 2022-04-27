@@ -79,7 +79,7 @@
     position: absolute;
     margin-top: .5rem;
     border-radius: 10px;
-    background-color: white;
+    background-color: var(--bg);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 
@@ -93,7 +93,7 @@
 
   .embedded-link:hover {
     background-color: var(--accent-text);
-    color: var(--plain);
+    color: var(--bg);
   } 
 
 }
