@@ -4,6 +4,7 @@ import apiHelpers from "./apiHelpers"
 const apiGeneratePalettes = {}
 const BASE_URL = "https://www.thecolorapi.com/scheme?hex="
 const SINGLE_URL = "https://www.thecolorapi.com/id?hex="
+const HSL_URL = "https://www.thecolorapi.com/id?hsl="
 
 apiGeneratePalettes.generateContrastingPalette = async (color) => {
   return await apiHelpers.tryCatchFetch(
@@ -32,6 +33,12 @@ apiGeneratePalettes.generateNeutral = async (color) => {
 apiGeneratePalettes.getSingleColor = async (color) => {
   return await apiHelpers.tryCatchFetch(
     () => axios.get(`${SINGLE_URL}${color}`)
+  )
+}
+
+apiGeneratePalettes.getSingleColorByHSL = async (color) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${HSL_URL}${color}`)
   )
 }
 

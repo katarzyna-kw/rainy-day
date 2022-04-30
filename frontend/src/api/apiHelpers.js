@@ -4,8 +4,10 @@ const apiHelpers = {}
 
 apiHelpers.getCsrfConfig = () => {
   return {
-    withCredentials: true, // this needs to be done for the separate project setup
+    withCredentials: true, // this needs to be done for the separate project setup,
     headers: {
+      // 'Access-Control-Allow-Origin': 'https://cors-anywhere.herokuapp.com/https://saved-for-a-rainy-day.herokuapp.com',
+      // 'Access-Control-Allow-Credentials': true,
       'X-CSRFToken': Cookie.get("csrftoken")
     }
   }

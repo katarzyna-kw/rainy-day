@@ -5,6 +5,7 @@ import EditPaletteColor from '../EditPaletteColor'
 import DeletePalette from '../DeletePalette'
 import EditPaletteName from '../EditPaletteName'
 import CopyPalette from '../CopyPalette'
+import LightenColor from '../LightenColor'
 import './ShowPalette.css'
 
 function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
@@ -77,9 +78,11 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
         {currentPalette.colors.map((color, i) => 
           color && (
           <div key={i} style={{backgroundColor: `${color}`}}className='palette-color'>
+            {/* <LightenColor color={color}/> */}
             <p className="palette-color__text">
               {color}
             </p>
+            {/* <button className='minus'>+</button> */}
           </div>
         ))}
         {(!lightNeutral && !currentPalette.color5) && 
