@@ -219,7 +219,7 @@ h1 {
 }
 
 .form--user-info input {
-  min-width: 300px;
+  width: 100%;
 }
 
 .input--user {
@@ -277,6 +277,14 @@ h1 {
 .success {
   color: var(--success);
 }
+
+
+@media(min-width: 350px) {
+  .form--user-info input {
+    min-width: 200px;
+  }
+}
+
 
 @media(min-width:768px) {
   .page__container {
@@ -337,6 +345,10 @@ h1 {
   .clickable--light,
   .clickable--dark {
     padding: .3rem 0;
+  }
+  
+  .form--user-info input {
+    min-width: 300px;
   }
 }
 
