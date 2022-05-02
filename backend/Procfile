@@ -1,0 +1,1 @@
+web: gunicorn styles_proj.wsgi --log-file -

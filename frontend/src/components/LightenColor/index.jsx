@@ -1,59 +1,84 @@
 import { useState, useEffect } from 'react'
 import apiGeneratePalettes from '../../api/apiGeneratePalettes'
 import apiCalls from '../../api/apiCalls'
+import { HexColorPicker} from 'react-colorful'
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
-function LightenColor({color}) {
 
-  const [newColor, setNewColor] = useState(null) 
+function LightenColor({currentPalette, currentColor, i, setColorChange}) {
 
-  const getHSL = async (color) => {
+  const [open, setOpen] = useState(false) 
+  const [color, setColor] = useState(currentColor)
+  const [newColor, setNewColor] = useState(currentColor)
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-    console.log("color b4 axios: ", color)
+  useEffect(() => {
+    console.log("ok")
+    console.log("new col: ", newColor)
+    console.log("current pal: ", currentPalette)
+  }, [newColor])
 
-    let hexOnly = color.slice(1,)
 
-    console.log("hex? : ", hexOnly)
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 200,
+    bgcolor: '#ffffff',
+    border: '0',
+    boxShadow: 24,
+    p: 4,
+    display: "flex",
+    justifyContent: "center",
+    borderRadius: "10px"
+  };
+  
+  const saveNewColor = async () => {
+    let colorSeq = i+1
+    let colorKey = `color${colorSeq}`
+    console.log("currentColor, colorkey: ", currentColor, colorKey)
 
-    const data = await apiGeneratePalettes.getSingleColor(hexOnly)
+    let newColorData = {
+      [colorKey]: color
+    }
+
+    const data = await apiCalls.updateColorPaletteById(currentPalette.id, newColorData)
 
     if (data) {
-      console.log("color data: ", data)
+      console.log("OPEN in save: ", open)
+      console.log("color has changed")
+      console.log("current color: ", currentColor)
+      setColorChange(true)
+      setNewColor(currentColor)
 
-      let hslColorInfo = data.hsl.value
-      let hslH = data.hsl.h
-      let hslS = data.hsl.s
-      let hslLAsNum = Number(data.hsl.l)
-
-      console.log("l: ", hslColorInfo, hslH, hslS, hslLAsNum)
-
-      let newShadeArg = `${hslH},${hslS}%,${hslLAsNum-20}%`
-
-      lightenColorByHSL(newShadeArg)
     }
-      else {
-        console.log("oh noo")
-    }
-  }
-
-  const lightenColorByHSL = async (hslVal) => {
-    const data = await apiGeneratePalettes.getSingleColorByHSL(hslVal)
-
-    if (data) {
-      console.log("new color data:", data)
-      let newColorHex = data.hex.value
-      console.log("newcolorhex: ", newColorHex)
-      setNewColor(newColorHex)
-
-    } else {
-      console.log("error in hsl call")
+    else {
+      console.log("color has NOT changed")
     }
   }
 
 
   return (
-    <button style={{backgroundColor: `${newColor}`}} className='minus' onClick={() => getHSL(color)}>
-      -
-    </button>
+    <div className='container'>
+      <button style={{backgroundColor: `${newColor}`}} className='minus' onClick={handleOpen}>
+        Edit
+      </button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <HexColorPicker color={color} onChange={setColor} onClick={saveNewColor} />
+        </Box>
+      </Modal>
+    </div>
+
     )
 }
 

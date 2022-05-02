@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+# Configure Django App for Heroku.
+import django_heroku
 import os
 from pathlib import Path
 from decouple import config
@@ -27,9 +29,10 @@ SECRET_KEY = config('SECRET_KEY')
 FONT_KEY = str(os.getenv('FONT_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+# DEBUG = True -- changed to check but "CSRF Failed: CSRF token from the 'X-Csrftoken' HTTP header has incorrect length." persists
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "styles_app",
     "rest_framework",
+    "whitenoise.runserver_nostatic",
     "corsheaders", # MUST be name this for django cors headers 
 ]
 
@@ -52,23 +56,39 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware", # MUST be above common middleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 CORS_ALLOWED_ORIGINS = [
+    "https://saved-for-a-rainy-day.web.app", 
     "http://localhost:3000" # location of frontend React server
 ]
 
+CORS_ORIGIN_WHITELIST = [
+    "https://saved-for-a-rainy-day.web.app",
+    "http://localhost:3000" # location of frontend React server
+]
 # added for authentication (required only for separate project setups)
 CSRF_TRUSTED_ORIGINS = [ 
+    "https://saved-for-a-rainy-day.web.app",
     "http://localhost:3000"
 ]
 
 #added for auth -- only separate proj setup
 CORS_ALLOW_CREDENTIALS = True
+
+# CORS_ALLOW_HEADERS = ['*']
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+
+# CSRF_COOKIE_HTTPONLY = False 
+# added to check but "CSRF Failed: CSRF token from the 'X-Csrftoken' HTTP header has incorrect length." persists
 
 # added for authentication (required for either separate project -or- hybrid project setups)
 REST_FRAMEWORK = { 
@@ -77,6 +97,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         "rest_framework.permissions.IsAuthenticated", # block actions for anonymous users by default
+        # "rest_framework.permissions.AllowAny", # block actions for anonymous users by default
     ]
 }
 
@@ -150,7 +171,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())

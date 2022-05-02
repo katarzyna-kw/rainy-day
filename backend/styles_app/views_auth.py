@@ -35,6 +35,7 @@ def handle_login(request):
 
 @csrf_exempt
 def handle_logout(request):
+    print("try to log out...")
     try:
         if request.method == "POST":
             logout(request)

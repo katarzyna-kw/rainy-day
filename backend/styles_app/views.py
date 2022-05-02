@@ -20,12 +20,15 @@ class ColorPaletteViewSet(ModelViewSet):
     
     def create(self, request):
         print("DATA:", request.data)
-        request.data["user_id"] = request.user.id
+        if self.request.user.is_anonymous:
+            request.data["user_id"] = None
+        else:
+            request.data["user_id"] = request.user.id
         print("CREATE....", request.user)
         return super().create(request)
     
     def get_queryset(self):
-        if self.request.user.is_superuser:
+        if self.request.user.is_superuser or self.request.user.is_anonymous:
             return ColorPalette.objects.all().order_by('-id')
         return ColorPalette.objects.filter(user_id=self.request.user).order_by('-id')
 
@@ -35,11 +38,14 @@ class FontPairViewSet(ModelViewSet):
 
     def create(self, request):
         print("DATA:", request.data)
-        request.data["user_id"] = request.user.id
+        if self.request.user.is_anonymous:
+            request.data["user_id"] = None
+        else:
+            request.data["user_id"] = request.user.id
         print("CREATE....", request.user)
         return super().create(request)
     
     def get_queryset(self):
-        if self.request.user.is_superuser:
+        if self.request.user.is_superuser or self.request.user.is_anonymous:
             return FontPair.objects.all().order_by('-id')
         return FontPair.objects.filter(user_id=self.request.user).order_by('-id')

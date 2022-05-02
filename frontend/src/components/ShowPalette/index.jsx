@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import apiCalls from '../../api/apiCalls'
 import apiGeneratePalettes from '../../api/apiGeneratePalettes'
 import EditPaletteColor from '../EditPaletteColor'
@@ -7,6 +7,7 @@ import EditPaletteName from '../EditPaletteName'
 import CopyPalette from '../CopyPalette'
 import LightenColor from '../LightenColor'
 import './ShowPalette.css'
+import EditPaletteNonNeutralColor from '../EditPaletteNonNeutralColor'
 
 function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
 
@@ -17,6 +18,12 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
   const [darkIsSaved, setDarkIsSaved] = useState(false)
   const [lightError, setLightError] = useState(false)
   const [darkError, setDarkError] = useState(false)
+
+  // useEffect(() => {
+  //   console.log("ok")
+  //   console.log("current pal: ", currentPalette)
+  // }, [currentPalette])
+
 
   const addNeutral = async (color) => {
     const data = await apiGeneratePalettes.generateNeutral(color)
@@ -75,16 +82,7 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
         <CopyPalette currentPalette={currentPalette} />
       </div>
       <div className='palette__container--view'>
-        {currentPalette.colors.map((color, i) => 
-          color && (
-          <div key={i} style={{backgroundColor: `${color}`}}className='palette-color'>
-            {/* <LightenColor color={color}/> */}
-            <p className="palette-color__text">
-              {color}
-            </p>
-            {/* <button className='minus'>+</button> */}
-          </div>
-        ))}
+        {currentPalette && <EditPaletteNonNeutralColor currentPalette={currentPalette} /> }
         {(!lightNeutral && !currentPalette.color5) && 
           <div className="clickable--light" onClick={() => addNeutral('FFFFFF')}>
             {(currentPalette.color5!== null) ? currentPalette.color5 : "Add a light neutral color"}
