@@ -3,13 +3,20 @@ import Cookie from "js-cookie"
 const apiHelpers = {}
 
 apiHelpers.getCsrfConfig = () => {
+  console.log("token: ", localStorage.getItem('token'))
   return {
-    withCredentials: true, // this needs to be done for the separate project setup,
+    // withCredentials: true, // this needs to be done for the separate project setup,
+    // headers: {
+    //   'X-CSRFToken': Cookie.get("csrftoken")
+    // }
     headers: {
-      'X-CSRFToken': Cookie.get("csrftoken")
+      Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   }
 }
+
+// headers: { Authorization:  `Bearer ${JSON.parse(accessToken)}` },
+
 
 apiHelpers.tryCatchFetch = async (axiosCall) => {
   try {

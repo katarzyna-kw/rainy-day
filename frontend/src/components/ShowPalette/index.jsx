@@ -19,11 +19,6 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
   const [lightError, setLightError] = useState(false)
   const [darkError, setDarkError] = useState(false)
 
-  // useEffect(() => {
-  //   console.log("ok")
-  //   console.log("current pal: ", currentPalette)
-  // }, [currentPalette])
-
 
   const addNeutral = async (color) => {
     const data = await apiGeneratePalettes.generateNeutral(color)
@@ -83,6 +78,15 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
       </div>
       <div className='palette__container--view'>
         {currentPalette && <EditPaletteNonNeutralColor currentPalette={currentPalette} /> }
+        {/* {currentPalette.colors.map((currentColor, i) => 
+          currentColor && (
+          <div key={i} style={{backgroundColor: `${currentColor}`}}className='palette-color'>
+            <LightenColor currentPalette={currentPalette} currentColor={currentColor} i={i}/>
+            <p className="palette-color__text">
+              {currentColor}
+            </p>
+          </div>
+        ))} */}
         {(!lightNeutral && !currentPalette.color5) && 
           <div className="clickable--light" onClick={() => addNeutral('FFFFFF')}>
             {(currentPalette.color5!== null) ? currentPalette.color5 : "Add a light neutral color"}

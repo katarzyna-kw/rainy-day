@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 # Configure Django App for Heroku.
+from datetime import timedelta
 import django_heroku
 import os
+from datetime import timedelta
 from pathlib import Path
 from decouple import config
 from dotenv import load_dotenv
@@ -47,7 +49,8 @@ INSTALLED_APPS = [
     "styles_app",
     "rest_framework",
     "whitenoise.runserver_nostatic",
-    "corsheaders", # MUST be name this for django cors headers 
+    "corsheaders", # MUST be name this for django cors headers
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware", # MUST be above common middleware
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -67,25 +70,26 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000" # location of frontend React server
 ]
 
-CORS_ORIGIN_WHITELIST = [
-    "https://saved-for-a-rainy-day.web.app",
-    "http://localhost:3000" # location of frontend React server
-]
-# added for authentication (required only for separate project setups)
-CSRF_TRUSTED_ORIGINS = [ 
-    "https://saved-for-a-rainy-day.web.app",
-    "http://localhost:3000"
-]
+# CORS_ORIGIN_WHITELIST = [
+#     "https://saved-for-a-rainy-day.web.app",
+#     "http://localhost:3000" # location of frontend React server
+# ]
+
+# # added for authentication (required only for separate project setups)
+# CSRF_TRUSTED_ORIGINS = [ 
+#     "https://saved-for-a-rainy-day.web.app",
+#     "http://localhost:3000"
+# ]
 
 #added for auth -- only separate proj setup
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_CREDENTIALS = True
 
 # CORS_ALLOW_HEADERS = ['*']
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SAMESITE = 'None'
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SAMESITE = 'None'
+# SESSION_COOKIE_SAMESITE = 'None'
 
 # CSRF_COOKIE_HTTPONLY = False 
 # added to check but "CSRF Failed: CSRF token from the 'X-Csrftoken' HTTP header has incorrect length." persists
@@ -93,12 +97,17 @@ SESSION_COOKIE_SAMESITE = 'None'
 # added for authentication (required for either separate project -or- hybrid project setups)
 REST_FRAMEWORK = { 
     "DEFAULT_AUTHENTICATION_CLASSES": [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         "rest_framework.authentication.SessionAuthentication",
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         "rest_framework.permissions.IsAuthenticated", # block actions for anonymous users by default
         # "rest_framework.permissions.AllowAny", # block actions for anonymous users by default
     ]
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120) 
 }
 
 

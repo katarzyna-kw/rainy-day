@@ -2,8 +2,8 @@ import axios from "axios"
 import apiHelpers from "./apiHelpers"
 
 const apiCalls = {}
-// const BASE_URL = "https://saved-rainy-day.herokuapp.com"
-const BASE_URL = "http://localhost:8000"
+const BASE_URL = "https://saved-rainy-day.herokuapp.com"
+// const BASE_URL = "http://localhost:8000"
 
 apiCalls.signup = async (signupData) => {
   return await apiHelpers.tryCatchFetch(
@@ -26,7 +26,7 @@ apiCalls.logout = async () => {
 apiCalls.getAllColorPalettes = async () => {
   return await apiHelpers.tryCatchFetch(
     () => axios.get(`${BASE_URL}/colors/`, apiHelpers.getCsrfConfig())
-    )
+  )
 }
 
 apiCalls.createColorPalette = async (paletteData) => {

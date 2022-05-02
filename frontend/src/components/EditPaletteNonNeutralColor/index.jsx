@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
+import PaletteColorView from '../PaletteColorView'
 import LightenColor from '../LightenColor'
 
 function EditPaletteNonNeutralColor({currentPalette}) {
 
   const [colorChange, setColorChange] = useState(false)
+  // const [newColor, setNewColor] = useState(null)
 
   useEffect(() => {
-    console.log("ok")
-    console.log("color change? ", colorChange)
-    console.log("current pal: ", currentPalette)
-    console.log("change in ef: ", colorChange)
-  }, [colorChange])
+    console.log("current pal in ed: ", currentPalette)
+  }, [currentPalette])
 
   return (
       currentPalette.colors.map((currentColor, i) => 

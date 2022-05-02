@@ -3,8 +3,8 @@ import apiHelpers from "./apiHelpers"
 
 const apiGenerateFonts = {}
 
-// const BASE_URL = "https://saved-rainy-day.herokuapp.com"
-const BASE_URL = "http://localhost:8000"
+const BASE_URL = "https://saved-rainy-day.herokuapp.com"
+// const BASE_URL = "http://localhost:8000"
 
 apiGenerateFonts.generateAllFonts = async () => {
 

@@ -9,16 +9,16 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 function LightenColor({currentPalette, currentColor, i, setColorChange}) {
 
+  const [newColor, setNewColor] = useState(null)
   const [open, setOpen] = useState(false) 
   const [color, setColor] = useState(currentColor)
-  const [newColor, setNewColor] = useState(currentColor)
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+
   useEffect(() => {
-    console.log("ok")
-    console.log("new col: ", newColor)
-    console.log("current pal: ", currentPalette)
+    console.log("new col in lc: ", newColor)
+    console.log("current pal in lc: ", currentPalette)
   }, [newColor])
 
 
@@ -51,15 +51,18 @@ function LightenColor({currentPalette, currentColor, i, setColorChange}) {
     if (data) {
       console.log("OPEN in save: ", open)
       console.log("color has changed")
-      console.log("current color: ", currentColor)
+      console.log("color: ", color)
       setColorChange(true)
-      setNewColor(currentColor)
+      setNewColor(color)
+      currentColor = color
 
     }
     else {
       console.log("color has NOT changed")
     }
   }
+
+
 
 
   return (

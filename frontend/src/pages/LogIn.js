@@ -33,8 +33,10 @@ function LogIn({setUser, user}) {
       const data = await apiCalls.login(loginData)
     
       if (data) {
+        console.log("data.token: ", data.token)
         setUser(data)
         localStorage.setItem("user", JSON.stringify(data))
+        localStorage.setItem("token", data.token)
         navigate("/")
       } else {
         setLoginError(true)
