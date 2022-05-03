@@ -7,7 +7,7 @@ const BASE_URL = "https://saved-rainy-day.herokuapp.com"
 
 apiCalls.signup = async (signupData) => {
   return await apiHelpers.tryCatchFetch(
-    () => axios.post(`${BASE_URL}/users/`, signupData, apiHelpers.getCsrfConfig())
+    () => axios.post(`${BASE_URL}/users/`, signupData)
   )
 }
 
