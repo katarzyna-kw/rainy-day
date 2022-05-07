@@ -4,24 +4,26 @@
 
 ## Table of contents
 
-- [Live Link](#live-link)
 - [Overview](#overview)
 - [Screencap](#screencap)
+- [Live Link](#live-link)
 - [Tech Stack](#tech-stack)
 - [Tools Used](#tools-used)
 - [Steps to run project locally](#steps-to-run-project-locally)
 - [Author](#author)
 
-## Live Link
-[Saved For a Rainy Day](https://saved-for-a-rainy-day.web.app/)
-
 ## Overview
 
 Store your styling ideas for upcoming projects (or a "rainy day" when you're short on styling inspiration) by creating, saving, and updating color palettes Google Font pairings all in one convenient site! Complementary, contrasting, and analogic color palette options from The Color API provide a starting point for your ideas while view/edit mode allows you to customize and update specific shades and hues within your palette to fit your needs. Choose and update Google font pairings using the most popular Google fonts pulled from the Google Fonts Developer API to ensure your projects align with the latest trends.
 
+
 ## Screencap
 
 ![Saved For a Rainy Day](https://raw.githubusercontent.com/katarzyna-kw/portfolio-website/main/public/img/portfolio/saved-for-a-rainy-day.png)
+
+
+## Live Link
+[Saved For a Rainy Day](https://saved-for-a-rainy-day.web.app/)
 
 
 ## Tech Stack
