@@ -12,12 +12,12 @@
 
 ## Overview
 
-Store your styling ideas for upcoming projects (or a "rainy day" when you're out of ideas) by creating and saving complementary, contrasting, or analogic color palettes and creating, saving, and updating Google Font pairings all in one site.
+Store your styling ideas for upcoming projects (or a "rainy day" when you're short on styling inspiration) by creating, saving, and updating color palettes Google Font pairings all in one convenient site! Complementary, contrasting, and analogic color palette options from The Color API provide a starting point for your ideas while view/edit mode allows you to customize and update specific shades and hues within your palette to fit your needs. Choose and update Google font pairings using the most popular Google fonts pulled from the Google Fonts Developer API to ensure your projects align with the latest trends.
 
 ## Tech Stack
 
-* React frontend
-* Django backend
+* React frontend styled with CSS
+* Django backend using Django Rest Framework
 * PostgreSQL database
 
 ## Tools used
@@ -27,8 +27,10 @@ Store your styling ideas for upcoming projects (or a "rainy day" when you're out
 * [Google Fonts API for Developers](https://developers.google.com/fonts/docs/developer_api)
 * [Web Font Loader](https://www.npmjs.com/package/webfontloader)
 * [React-Color-Palette](https://www.npmjs.com/package/react-color-palette)
-* [Font Awesome](https://fontawesome.com/v5/docs/web/use-with/react)
+* [React Colorful](https://omgovich.github.io/react-colorful/)
+* [Font Awesome Icons](https://fontawesome.com/v5/docs/web/use-with/react)
 * [Material_UI Switch](https://mui.com/material-ui/react-switch/)
+* [Material_UI Modal](https://mui.com/material-ui/react-modal/)
 
 ## Steps to run project locally
 
