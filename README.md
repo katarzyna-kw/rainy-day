@@ -91,7 +91,7 @@ ___
 $ (.venv) pip install -r requirements.txt
 ```
 
-Note the (.venv) in front of the prompt. This indicates that this terminal session operates in a virtural environment.
+Note the (.venv) in front of the prompt. This indicates that this terminal session operates in a virtual environment.
 
 If that command results in an error, try:
 

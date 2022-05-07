@@ -20,7 +20,7 @@ export const navData = [
     "loggedin": true,
   },
   {
-    "name": "View My Styles",
+    "name": "View & Edit Styles",
     // "url": null,
     "loggedin": true,
     "links": [

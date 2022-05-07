@@ -7,9 +7,8 @@ import Modal from '@mui/material/Modal';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 
-function LightenColor({currentPalette, currentColor, i, setColorChange}) {
+function LightenColor({currentPalette, currentColor, i, updateColorPalette}) {
 
-  const [newColor, setNewColor] = useState(null)
   const [open, setOpen] = useState(false) 
   const [color, setColor] = useState(currentColor)
   const handleOpen = () => setOpen(true);
@@ -17,9 +16,8 @@ function LightenColor({currentPalette, currentColor, i, setColorChange}) {
 
 
   useEffect(() => {
-    console.log("new col in lc: ", newColor)
     console.log("current pal in lc: ", currentPalette)
-  }, [newColor])
+  }, [])
 
 
   const style = {
@@ -52,10 +50,10 @@ function LightenColor({currentPalette, currentColor, i, setColorChange}) {
       console.log("OPEN in save: ", open)
       console.log("color has changed")
       console.log("color: ", color)
-      setColorChange(true)
-      setNewColor(color)
       currentColor = color
-
+      console.log("current color: ", currentColor)
+      console.log("current pal in lighten color: ", currentPalette)
+      updateColorPalette(data)
     }
     else {
       console.log("color has NOT changed")
@@ -67,7 +65,7 @@ function LightenColor({currentPalette, currentColor, i, setColorChange}) {
 
   return (
     <div className='container'>
-      <button style={{backgroundColor: `${newColor}`}} className='minus' onClick={handleOpen}>
+      <button className='edit-btn' onClick={handleOpen}>
         Edit
       </button>
       <Modal

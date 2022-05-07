@@ -64,7 +64,7 @@ function Navbar({user, setUser, handleToggle, setTheme}) {
                     {item.name}
                   </li>
                 </div>}
-                {(item.name === "View My Styles") && <button className='nav--button' onClick={() => setDropdownOpen((prev) => !prev)}><FontAwesomeIcon className="nav--icon" icon={faAngleDown} /></button>}
+                {(item.name === "View & Edit Styles") && <button className='nav--button' onClick={() => setDropdownOpen((prev) => !prev)}><FontAwesomeIcon className="nav--icon" icon={faAngleDown} /></button>}
               </div>
                 {(item.links && dropdownOpen) && <div className='embedded-links' ref={menu}>
                   {item.links.map((embedded, i) => (

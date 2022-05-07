@@ -40,7 +40,7 @@ apiCalls.getColorPaletteById = async (colorPaletteId) => {
 }
 
 apiCalls.updateColorPaletteById = async (colorPaletteId, newData) => {
-  console.log("csrf: ", apiHelpers.getCsrfConfig())
+  // console.log("csrf: ", apiHelpers.getCsrfConfig())
   return await apiHelpers.tryCatchFetch(
     () => axios.patch(`${BASE_URL}/colors/${colorPaletteId}/`, newData, apiHelpers.getCsrfConfig()))
 }

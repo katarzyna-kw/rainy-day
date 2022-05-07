@@ -27,13 +27,24 @@ function ViewMyPalettes({user}) {
     setPalettes(data ? data : [])
   }
 
+  const updateColorPalette = (newColorPalette) => {
+    let newPalettes = [...palettes]
+    for (let i=0; i<newPalettes.length; i++) {
+      if (newColorPalette.id == newPalettes[i].id) {
+        newPalettes[i] = newColorPalette
+        break
+      }
+    }
+    setPalettes(newPalettes)
+  }
+
   return (
     <section className="section-column">
       <h2>My Color Palettes </h2>
       <div className="styles__container">
         <div className="palettes__container">
           {palettes && palettes.map((palette) => (
-            <ShowPalette key={palette.id} currentPalette={palette} removePaletteFromView={removePaletteFromView} editNameInView={editNameInView} />
+            <ShowPalette key={palette.id} currentPalette={palette} removePaletteFromView={removePaletteFromView} editNameInView={editNameInView} updateColorPalette={updateColorPalette} />
           ))}
         </div>
       </div>

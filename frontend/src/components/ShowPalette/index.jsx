@@ -9,7 +9,7 @@ import LightenColor from '../LightenColor'
 import './ShowPalette.css'
 import EditPaletteNonNeutralColor from '../EditPaletteNonNeutralColor'
 
-function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
+function ShowPalette({currentPalette, removePaletteFromView, editNameInView, updateColorPalette}) {
 
   const [renaming, setRenaming] = useState(false)
   const [lightNeutral, setLightNeutral] = useState(null)
@@ -76,17 +76,10 @@ function ShowPalette({currentPalette, removePaletteFromView, editNameInView}) {
         <DeletePalette currentPalette={currentPalette} removePaletteFromView={removePaletteFromView} />
         <CopyPalette currentPalette={currentPalette} />
       </div>
+      
       <div className='palette__container--view'>
-        {currentPalette && <EditPaletteNonNeutralColor currentPalette={currentPalette} /> }
-        {/* {currentPalette.colors.map((currentColor, i) => 
-          currentColor && (
-          <div key={i} style={{backgroundColor: `${currentColor}`}}className='palette-color'>
-            <LightenColor currentPalette={currentPalette} currentColor={currentColor} i={i}/>
-            <p className="palette-color__text">
-              {currentColor}
-            </p>
-          </div>
-        ))} */}
+        {currentPalette && <EditPaletteNonNeutralColor currentPalette={currentPalette} updateColorPalette={updateColorPalette} />
+        }
         {(!lightNeutral && !currentPalette.color5) && 
           <div className="clickable--light" onClick={() => addNeutral('FFFFFF')}>
             {(currentPalette.color5!== null) ? currentPalette.color5 : "Add a light neutral color"}

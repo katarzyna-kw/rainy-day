@@ -155,7 +155,7 @@ h1 {
 .palette__container--view {
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #000000;
+  border: 1px solid var(--palette-border);
 }
 
 .palette-color:last-child(1) {
@@ -276,6 +276,22 @@ h1 {
 
 .success {
   color: var(--success);
+}
+
+.edit-btn {
+  width: 60px;
+  /* padding: .5rem 1rem; */
+  outline: none;
+  color: #000;
+  background: #F2F2F1;
+  cursor: pointer;
+  border-radius: 10px;
+  touch-action: manipulation;
+  /* margin: 0 .2rem .2rem .2rem; */
+  border: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 
