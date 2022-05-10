@@ -31,7 +31,7 @@ SECRET_KEY = config('SECRET_KEY')
 FONT_KEY = str(os.getenv('FONT_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # DEBUG = True -- changed to check but "CSRF Failed: CSRF token from the 'X-Csrftoken' HTTP header has incorrect length." persists
 
 ALLOWED_HOSTS = ['*']
@@ -50,7 +50,9 @@ INSTALLED_APPS = [
     "rest_framework",
     "whitenoise.runserver_nostatic",
     "corsheaders", # MUST be name this for django cors headers
-    'rest_framework_simplejwt',
+
+
+
 ]
 
 MIDDLEWARE = [
