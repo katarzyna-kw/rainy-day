@@ -9,7 +9,7 @@
 - [Live Link](#live-link)
 - [Tech Stack](#tech-stack)
 - [Tools Used](#tools-used)
-- [Steps to run project locally](#steps-to-run-project-locally)
+<!-- - [Steps to run project locally](#steps-to-run-project-locally) -->
 - [Author](#author)
 
 ## Overview
@@ -43,8 +43,9 @@ Store your styling ideas for upcoming projects (or a "rainy day" when you're sho
 * [Font Awesome Icons](https://fontawesome.com/v5/docs/web/use-with/react)
 * [Material_UI Switch](https://mui.com/material-ui/react-switch/)
 * [Material_UI Modal](https://mui.com/material-ui/react-modal/)
+* [Spinners React](https://github.com/adexin/spinners-react)
 
-## Steps to run project locally
+<!-- ## Steps to run project locally
 
 1. Clone the repository:
 
@@ -178,7 +179,7 @@ ___
 
 The previous command should start and open server, but it does not, view the site in browser with the following link: 
 
-[http://localhost:3000/](http://localhost:3000/)
+[http://localhost:3000/](http://localhost:3000/) -->
 
 
 ___
