@@ -4,6 +4,7 @@ import apiCalls from "../api/apiCalls"
 import {validate} from 'react-email-validator'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+import { SpinnerCircular } from 'spinners-react'
 
 function LogIn({setUser, user}) {
 
@@ -12,16 +13,20 @@ function LogIn({setUser, user}) {
   const [loginError, setLoginError] = useState(false)
   const [validEmailError, setValidEmailError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleLogin = async (e) => {
     e.preventDefault()
+    setLoading(true)
     setLoginError(false)
     setPasswordError(false)
     setValidEmailError(false)
     if (e.target.elements["password"].value === "") {
+      setLoading(false)
       setPasswordError(true)
     }
     if (!validate(e.target.elements["username"].value)) {
+      setLoading(false)
       setValidEmailError(true)
     }
     else {
@@ -39,6 +44,7 @@ function LogIn({setUser, user}) {
         localStorage.setItem("token", data.token)
         navigate("/")
       } else {
+        setLoading(false)
         setLoginError(true)
       }
     }
@@ -69,6 +75,7 @@ function LogIn({setUser, user}) {
       <FontAwesomeIcon className="feedback-icon error icon--error-edit" icon={faExclamationTriangle} />
       <p className='feedback__text'>Username and password do not match.</p>
     </div>}
+    {loading && <SpinnerCircular color='rgb(105, 109, 109)' secondaryColor='#F2F2F1'/>}
     </section>
   )
 }

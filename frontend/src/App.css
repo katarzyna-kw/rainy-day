@@ -181,6 +181,7 @@ h1 {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .form__container input {
