@@ -197,6 +197,7 @@ h1 {
   width: 85%;
   padding: 1rem;
   border-radius: 10px;
+
 }
 
 .form--user-info .form-items {
@@ -366,6 +367,7 @@ h1 {
   
   .form--user-info input {
     min-width: 300px;
+    max-width: 300px;
   }
 }
 

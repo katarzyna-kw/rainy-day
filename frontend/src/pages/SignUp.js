@@ -4,6 +4,7 @@ import apiCalls from "../api/apiCalls"
 import {validate} from 'react-email-validator'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+import { SpinnerCircular } from 'spinners-react'
 
 function SignUp() {
 
@@ -13,20 +14,25 @@ function SignUp() {
   const [validEmailError, setValidEmailError] = useState(false)
   const [nameError, setNameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
+  const [loading, setLoading] = useState(false)
 
 
   const handleSignUp = async (e) => {
     e.preventDefault()
+    setLoading(true)
     setValidEmailError(false)
     setPasswordError(false)
     setNameError(false)
     if (e.target.elements["first_name"].value === "") {
+      setLoading(false)
       setNameError(true)
     }
     if (e.target.elements["password"].value === "") {
+      setLoading(false)
       setPasswordError(true)
     } 
     if (!validate(e.target.elements["username"].value)) {
+      setLoading(false)
       setValidEmailError(true)
     }
     else {
@@ -46,6 +52,7 @@ function SignUp() {
         navigate("/login")
       }
       else {
+        setLoading(false)
         setError(true)
       }  
     }
@@ -83,6 +90,7 @@ function SignUp() {
           <p className='feedback__text'>Try to log in to see if user already exists.</p>
         </div>
       }
+      {loading && <SpinnerCircular color='rgb(105, 109, 109)' secondaryColor='#F2F2F1'/>}
     </section>
   )
 }
