@@ -23,6 +23,7 @@ function SignUp() {
     setValidEmailError(false)
     setPasswordError(false)
     setNameError(false)
+    setError(false)
     if (e.target.elements["first_name"].value === "") {
       setLoading(false)
       setNameError(true)
@@ -87,7 +88,7 @@ function SignUp() {
       {error && 
         <div className="feedback">
           <FontAwesomeIcon className="feedback-icon error icon--error-edit" icon={faExclamationTriangle} />
-          <p className='feedback__text'>Try to log in to see if user already exists.</p>
+          <p className='feedback__text'>There was an error signing up with this email/password.</p>
         </div>
       }
       {loading && <SpinnerCircular color='rgb(105, 109, 109)' secondaryColor='#F2F2F1'/>}
